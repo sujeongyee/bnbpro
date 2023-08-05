@@ -81,9 +81,15 @@
     	font-weight: 700;
     	font-style: normal;
 		}
+		@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
 		
 		body {
-			font-family: 'SUITE-Regular';
+			font-family: 'LINESeedKR-Bd';
 			font-size: 15px;
 		}
 		
@@ -106,11 +112,26 @@
 			
 		}
 		
+		.logo_ {
+			font-family: 'LINESeedKR-Bd';
+			margin-top: 5px;
+			margin-left: 15px;
+			letter-spacing: 4px;
+		}
+		
+		.pagination {
+			margin: 0 auto;
+		}
+		
+		
 	</style>
 
 	
   <body>
-
+	<!--padding-left:252px ;
+			margin-top: 22px;
+			margin-bottom: -17px;
+		-->
     
     <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
@@ -140,7 +161,7 @@
 
     <!-- Brand demo (see assets/css/demo/demo.css) -->
     <div class="navbar-brand app-brand demo py-0 me-4">
-      <a href="index.html" class="app-brand-link gap-2">
+      <a href="main" class="app-brand-link gap-2">
         <span class="app-brand-logo demo">
 			
 	<div >
@@ -231,12 +252,12 @@
           </li>-->
            
           <li class="nav-item me-2">
-            <a href="#" target="_blank" class="nav-link" style="color: #ff385c;font-weight: bold;"><!--<i class="tf-icons bx bx-buoy"></i>-->
+            <a href="#" target="_blank" class="nav-link" style="color: black;font-weight: bold;font-size: 16px;"><!--<i class="tf-icons bx bx-buoy"></i>-->
               마이페이지</a>
           </li>
            
           <li class="nav-item">
-            <a href="#" target="_blank" class="nav-link" style="color: #ff385c;font-weight: bold;"><!--<i class="tf-icons bx bx-gift"></i>--> admin님 반갑습니다</a>
+            <a href="#" target="_blank" class="nav-link" style="color: black;font-weight: bold;font-size: 16px;"><!--<i class="tf-icons bx bx-gift"></i>--> admin님 반갑습니다</a>
           </li>
           
         </ul>
@@ -288,9 +309,10 @@
   <!-- Links -->
   <ul class="menu-inner py-1 ps ps--active-y">
     <li class="menu-header small fw-medium">Getting Started</li>
-    <li class="menu-item" style="margin-top: 10px;">
-      <a href="index.html" class="menu-link">
+    <li class="menu-item now-page " >
+      <a href="main" class="menu-link">
         <div>숙소리스트</div>
+        <span class="badge badge-demo bg-label-primary ms-auto" style="font-size: 10px;">❤️</span>
       </a>
     </li>
     <li class="menu-item">
@@ -306,14 +328,14 @@
     <li class="menu-item">
       <a href="quick-start.html" class="menu-link">
         <div>문의관리</div>
-        <span class="badge badge-demo bg-label-primary ms-auto">-></span>
+        <span class="badge badge-demo bg-label-primary ms-auto"></span>
 
       </a>
     </li>
     <li class="menu-item">
       <a href="config.html" class="menu-link">
         <div>리뷰관리</div>
-        <span class="badge badge-demo bg-label-primary ms-auto">-></span>
+        <span class="badge badge-demo bg-label-primary ms-auto"></span>
 
       </a>
     </li>
@@ -1091,8 +1113,8 @@
 
 <div class="row flex-xl-nowrap">
   <div class="DocSearch-content col-12 container-p-y">
-    <h2 class="mb-4 doc-page-title">Rapidly build stunning Web Apps with Sneat 🚀</h2>
-    <p class="lead">Developer friendly, Highly customizable &amp; Carefully crafted HTML Admin Dashboard Template.</p>
+    <h2 class="mb-4 doc-page-title">고객님의 등록된 숙소 리스트입니다</h2>
+    <p class="lead">The start of a pleasant journey! its thanks to you</p>
 
     <hr class="my-5">
 
@@ -1210,6 +1232,48 @@
           </div>
         </div>
       </div>
+      
+      <div class="page-wrap">
+      <nav aria-label="Page navigation">
+            <ul class="pagination">
+				
+              <li class="page-item first">
+                <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevrons-left"></i></a>
+              </li>
+              <li class="page-item prev">
+                <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevron-left"></i></a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0);">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0);">2</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="javascript:void(0);">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0);">4</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0);">5</a>
+              </li>
+              <li class="page-item next">
+                <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevron-right"></i></a>
+              </li>
+              <li class="page-item last">
+                <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevrons-right"></i></a>
+              </li>
+              
+            </ul>
+          </nav>
+      </div>
+      
+      
+      
+      
+      
+      
     </div>
   </div>
 
