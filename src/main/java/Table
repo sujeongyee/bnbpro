@@ -8,7 +8,7 @@ create table lodgment (
     lodg_img_filename varchar(100),
     lodg_img_filepath varchar(100),
     lodg_img_uuid varchar(100),
-    lodg_ph int (30),
+    lodg_ph varchar (30),
     lodg_content varchar(1000),
     bn_id varchar(20)
 );

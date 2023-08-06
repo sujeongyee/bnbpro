@@ -6632,20 +6632,22 @@ label.btn {
 
 .btn-danger {
   color: #fff;
-  background-color: #ff3e1d;
-  border-color: #ff3e1d;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 62, 29, 0.4);
+  background-color: #ff385c;
+  border-color: #ff385c;
+  box-shadow: 0 0.125rem 0.25rem 0 #ff385c;
+  
+  margin-left: 575px;
 }
 .btn-danger:hover {
   color: #fff;
-  background-color: #e6381a;
-  border-color: #e6381a;
+  background-color: #ff385c;
+  border-color: #ff385c;
   transform: translateY(-1px);
 }
 .btn-check:focus + .btn-danger, .btn-danger:focus, .btn-danger.focus {
   color: #fff;
-  background-color: #e6381a;
-  border-color: #e6381a;
+  background-color: #ff385c;
+  border-color: #ff385c;
   transform: translateY(0);
   box-shadow: none;
 }

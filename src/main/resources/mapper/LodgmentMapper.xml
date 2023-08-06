@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.ddu.pro.service.LodgmentMapper">
+	<insert id="lodgmentRegist">
+		insert into lodgment (lodg_type,
+		                      lodg_name,
+		                      lodg_rg,
+		                      lodg_addr,
+		                      lodg_img_filename,
+		                      lodg_img_filepath,
+		                      lodg_img_uuid,
+		                      lodg_ph,
+		                      lodg_content,
+		                      bn_id)
+		values (#{lodg_type},
+		        #{lodg_name},
+		        #{lodg_rg},
+		        #{lodg_addr},
+		        #{lodg_img_filename},
+		        #{lodg_img_filepath},
+		        #{lodg_img_uuid},
+		        #{lodg_ph},
+		        #{lodg_content},
+		        'admin')
+	</insert>
+	
+	<select id="getLodgList" resultType="LodgmentVO">
+		select * from lodgment where bn_id = #{bn_id}
+	</select>
+  </mapper>
