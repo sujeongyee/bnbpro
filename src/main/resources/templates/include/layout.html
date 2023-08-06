@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="setContent(content)">
+
+	<head>
+
+		<link rel="shortcut icon" type="image⁄x-icon" href="assets/img/favicon/logo4.png">
+
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+		<title>철수비앤비</title>
+
+		<meta name="description"
+			content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!">
+		<meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
+
+		<!-- Canonical SEO -->
+		<link rel="canonical" href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/">
+
+
+		<!-- ? PROD Only:Google Tag Manager (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
+		<script type="text/javascript" async="" src="https://static.hotjar.com/c/hotjar-3067524.js?sv=7"></script>
+		<script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5DDHKGP"></script>
+		<script>(function (w, d, s, l, i) {
+				w[l] = w[l] || []; w[l].push({
+					'gtm.start':
+						new Date().getTime(), event: 'gtm.js'
+				}); var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+						'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-5DDHKGP');</script>
+		<!-- End Google Tag Manager -->
+
+
+		<!-- Favicon -->
+		<!--<link rel="icon" type="image/x-icon" th:href="@{/assets/img/favicon/favicon.ico}">-->
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
+			rel="stylesheet">
+
+		<!-- Icons -->
+		<link rel="stylesheet" th:href="@{/assets/vendor/fonts/boxicons.css}">
+		<link rel="stylesheet" th:href="@{/assets/vendor/fonts/fontawesome.css}">
+
+		<!-- Core CSS -->
+		<link rel="stylesheet" th:href="@{/assets/vendor/css/core.css}">
+		<link rel="stylesheet" th:href="@{/assets/css/demo.css}">
+		<link rel="stylesheet" th:href="@{/assets/css/docs.css}">
+
+		<!--Vendors CSS-->
+		<link rel="stylesheet" th:href="@{/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css}">
+		<link rel="stylesheet" th:href="@{/assets/vendor/libs/highlight/highlight.css}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">-->
+
+
+		<!-- Page CSS -->
+
+
+		<!-- Core JS -->
+		<script th:src="@{/assets/vendor/js/helpers.js}"></script>
+		<style type="text/css">
+			.layout-menu-fixed .layout-navbar-full .layout-menu,
+			.layout-menu-fixed-offcanvas .layout-navbar-full .layout-menu {
+				top: 0px !important;
+			}
+
+			.layout-page {
+				padding-top: 0px !important;
+			}
+
+			.content-wrapper {
+				padding-bottom: 0px !important;
+			}
+		</style>
+
+		<!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+		<!--? Template customizer: Don't remove unless you are aware of it, To hide customizer set displayCustomizer value false in config.js.  -->
+		<!-- <script src="assets/vendor/js/template-customizer.js"></script> -->
+		<!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+		<script th:src="@{/assets/js/config.js}"></script>
+
+		<script type="text/javascript" src="https://a.omappapi.com/app/js/api.min.js" async="" data-user="252882"
+			data-account="269977"></script>
+		<link rel="stylesheet" href="https://a.omappapi.com/app/js/api.min.css" id="omapi-css" media="all">
+		<script async="" src="https://script.hotjar.com/modules.92ff9978854791af68a7.js" charset="utf-8"></script>
+		<style>
+			@font-face {
+				font-family: 'SUITE-Regular';
+				src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+				font-weight: 700;
+				font-style: normal;
+			}
+
+			body {
+				font-family: 'SUITE-Regular';
+				font-size: 15px;
+			}
+
+
+
+			.logo_ {
+				display: inline-block;
+				font-weight: 400px;
+				color: #ff385c;
+			}
+
+			.logo-img {
+				width: 30px;
+				height: 30px;
+				z-index: 1.1;
+			}
+
+			.layout-navbar {
+				border-bottom: 3px solid #ff385c;
+
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- Layout wrapper -->
+		<div class="layout-wrapper layout-navbar-full layout-menu-fixed layout-navbar-fixed ">
+			<div class="layout-container">
+
+
+
+
+
+				<!-- Navbar main -->
+
+				<nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-primary" id="layout-navbar">
+					<div class="container-fluid">
+
+						<!-- Menu toggle (see assets/css/demo/demo.css) -->
+						<div class="layout-menu-toggle navbar-nav d-lg-none align-items-lg-center">
+							<a class="nav-item nav-link px-0 me-lg-4" href="javascript:void(0)">
+								<i class="bx bx-menu bx-sm align-middle"></i>
+							</a>
+						</div>
+
+
+						<!-- Brand demo (see assets/css/demo/demo.css) -->
+						<div class="navbar-brand app-brand demo py-0 me-4">
+							<a href="index.html" class="app-brand-link gap-2">
+								<span class="app-brand-logo demo">
+
+									<div>
+										<img th:src="@{/assets/img/favicon/logo3.png}" alt="로고이미지" class="logo-img">
+									</div>
+
+
+
+								</span>
+								<!--<span class="app-brand-text demo menu-text fw-bold">AIRBNB</span>-->
+								<a href="#" class="logo_">AIRBNB</a>
+							</a>
+						</div>
+
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+							data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<div class="navbar-collapse collapse" id="navbar-collapse">
+							<!-- Divider -->
+							<hr class="d-lg-none w-100 my-2">
+
+
+
+							<div class="navbar-nav align-items-lg-center ms-auto">
+
+								<ul class="navbar-nav">
+									<!-- Technology dropdown -->
+
+									<!--<li class="nav-item dropdown me-2">
+          
+
+									<li class="nav-item me-2">
+										<a href="#" target="_blank" class="nav-link"
+											style="color: #ff385c;font-weight: bold;"><!--<i class="tf-icons bx bx-buoy"></i>-->
+									마이페이지</a>
+									</li>
+
+									<li class="nav-item">
+										<a href="#" target="_blank" class="nav-link"
+											style="color: #ff385c;font-weight: bold;"><!--<i class="tf-icons bx bx-gift"></i>-->
+											admin님 반갑습니다</a>
+									</li>
+
+								</ul>
+
+								<!-- Divider -->
+								<div class="nav-item d-none d-lg-block text-big fw-light lh-1 opacity-25 me-3 ms-1">
+								</div>
+
+
+
+
+							</div>
+						</div>
+					</div>
+				</nav>
+				<!-- / Navbar main -->
+
+
+
+				<!-- Layout page -->
+				<div class="layout-page">
+
+
+
+
+
+
+
+					<!-- Menu -->
+					<aside id="layout-menu" class="layout-menu menu-doc menu menu-vertical bg-menu-theme"
+						data-bg-class="bg-menu-theme"
+						style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+
+
+						<div class="menu-divider mt-0   d-xl-none ">
+						</div>
+
+
+						<!-- Links -->
+						<ul class="menu-inner py-1 ps ps--active-y">
+							<li class="menu-header small fw-medium">Getting Started</li>
+							<li class="menu-item" style="margin-top: 10px;">
+								<a href="index.html" class="menu-link">
+									<div>숙소리스트</div>
+								</a>
+							</li>
+							<li class="menu-item">
+								<a href="licenses.html" class="menu-link">
+									<div>숙소등록하기</div>
+								</a>
+							</li>
+							<li class="menu-item">
+								<a href="folder-structure.html" class="menu-link">
+									<div>예약현황</div>
+								</a>
+							</li>
+							<li class="menu-item">
+								<a href="quick-start.html" class="menu-link">
+									<div>문의관리</div>
+									<span class="badge badge-demo bg-label-primary ms-auto">-></span>
+
+								</a>
+							</li>
+							<li class="menu-item">
+								<a href="config.html" class="menu-link">
+									<div>리뷰관리</div>
+									<span class="badge badge-demo bg-label-primary ms-auto">-></span>
+
+								</a>
+							</li>
+
+							<div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+								<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+							</div>
+							<div class="ps__rail-y">
+								<!--<div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 359px;"></div>-->
+							</div>
+						</ul>
+					</aside>
+					<!-- / Menu -->
+
+
+
+					<!-- Content wrapper -->
+					<div class="content-wrapper">
+
+						<!-- Content -->
+						
+						<div class="container-xxl flex-grow-1 container-p-y" th:replace="${content}">
+		
+						</div>
+						
+						<!--<div class="container-xxl flex-grow-1 container-p-y">
+
+
+
+							<div class="row flex-xl-nowrap">
+								<div class="DocSearch-content col-12 container-p-y">
+									<h2 class="mb-4 doc-page-title">Rapidly build stunning Web Apps with Sneat 🚀</h2>
+									<p class="lead">Developer friendly, Highly customizable &amp; Carefully crafted HTML
+										Admin Dashboard Template.</p>
+
+									<hr class="my-5">
+
+									<div class="row">
+										<div class="col-md-4 mb-4">
+											<div class="card">
+												<div class="card-body">
+													<div class="badge bg-label-danger p-3 rounded mb-3">
+														<i class="bx bx-rocket fs-3"></i>
+													</div>
+													<h4>Quick Start</h4>
+													<p>Jump-start your development using this amazing theme. Use HTML
+														snippet to quickly start and easily setup Theming, Styling and
+														RTL support.
+													</p>
+													<p class="fw-bold mb-0"><a class="stretched-link"
+															href="quick-start.html">Start now <i
+																class="bx bx-chevron-right"></i></a></p>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 mb-4">
+											<div class="card">
+												<div class="card-body">
+													<div class="badge bg-label-warning p-3 rounded mb-3">
+														<i class="bx bx-slider-alt fs-3"></i>
+													</div>
+													<h4>Customize Easily 🤩 <span
+															class="badge badge-demo bg-label-primary">PRO</span></h4>
+													<p>Customize Sneat super easily using TemplateCustomizer settings in
+														<code>config.js</code> file <strong>without</strong> touching
+														single line of code 🤘.
+													</p>
+													<p class="fw-bold mb-0"><a class="stretched-link"
+															href="config.html">Configure it <i
+																class="bx bx-chevron-right"></i></a></p>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 mb-4">
+											<div class="card">
+												<div class="card-body">
+													<div class="badge bg-label-success p-3 rounded mb-3">
+														<i class="bx bx-cog fs-3"></i>
+													</div>
+													<h4>TemplateCustomizer <span
+															class="badge badge-demo bg-label-primary">PRO</span></h4>
+													<p>TemplateCustomizer plugin allows you and your customers to
+														customize template themes, layout options and <strong>look &amp;
+															feel</strong> in real time.</p>
+													<p class="fw-bold mb-0"><a class="stretched-link"
+															href="template-customizer.html">Read more <i
+																class="bx bx-chevron-right"></i></a></p>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-4 mb-4">
+											<div class="card">
+												<div class="card-body">
+													<div class="badge badge-demo bg-label-primary p-3 rounded mb-3">
+														<i class="bx bx-layout fs-3"></i>
+													</div>
+													<h4>Layout generator</h4>
+													<p>Sneat provides online tool to generate your preferred layout
+														easily. For better experience, open generator in new tab.</p>
+													<p class="fw-bold mb-0"><a class="stretched-link"
+															href="https://tools.themeselection.com/generator/sneat/html"
+															target="_blank">Generate now <i
+																class="bx bx-chevron-right"></i></a></p>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="col-md-4 mb-4">
+											<div class="card">
+												<div class="card-body">
+													<div class="badge bg-label-secondary p-3 rounded mb-3">
+														<i class="bx bx-layer fs-3"></i>
+													</div>
+													<h4>Extended Utility Classes</h4>
+													<p>Build whatever you want without writing a single line of CSS/SASS
+														code by just using our <strong>low-level extended</strong>
+														utility classes.</p>
+													<p class="fw-bold mb-0"><a class="stretched-link"
+															href="utilities.html">Read more <i
+																class="bx bx-chevron-right"></i></a></p>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 mb-4">
+											<div class="card">
+												<div class="card-body">
+													<div class="badge bg-label-info p-3 rounded mb-3">
+														<i class="bx bx-code-curly fs-3"></i>
+													</div>
+													<h4>Useful Helper Methods <span
+															class="badge badge-demo bg-label-primary">PRO</span></h4>
+													<p>Useful JavaScript helpers methods to customize Sneat easily. It
+														provides ready to use <strong>layout &amp; customizer</strong>
+														helper methods.</p>
+													<p class="fw-bold mb-0"><a class="stretched-link"
+															href="customization-js.html#js-methods">Read more <i
+																class="bx bx-chevron-right"></i></a></p>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-4 mb-4">
+											<div class="card">
+												<div class="card-body">
+													<div class="badge bg-label-danger p-3 rounded mb-3">
+														<i class="bx bx-extension fs-3"></i>
+													</div>
+													<h4>3rd Party Plugins <span
+															class="badge badge-demo bg-label-primary">PRO</span></h4>
+													<p>All the popular 3rd party plugins are deeply customized in order
+														to perfectly meet our design system. You can easily
+														<strong>add/remove</strong> third-party plugins.
+													</p>
+													<p class="fw-bold mb-0"><a class="stretched-link"
+															href="customization-third-party-plugins.html">Read more <i
+																class="bx bx-chevron-right"></i></a></p>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 mb-4">
+											<div class="card">
+												<div class="card-body">
+													<div class="badge bg-label-warning p-3 rounded mb-3">
+														<i class="bx bx-git-repo-forked fs-3"></i>
+													</div>
+													<h4>Repository Access <span
+															class="badge badge-demo bg-label-primary ">PRO</span></h4>
+													<p>Get the private repository access to track the premium version
+														development easily. <strong>Fork</strong> the repository to get
+														the seamless updates.</p>
+													<p class="fw-bold mb-0"><a class="stretched-link"
+															href="https://tools.themeselection.com/github/github-access"
+															target="_blank">Get Access <i
+																class="bx bx-chevron-right"></i></a></p>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 mb-4">
+											<div class="card">
+												<div class="card-body">
+													<div class="badge bg-label-success p-3 rounded mb-3">
+														<i class="bx bx-support fs-3"></i>
+													</div>
+													<h4>Premium Support <span
+															class="badge badge-demo bg-label-primary">PRO</span></h4>
+													<p>Experience premium customer support from the <strong>real
+															people</strong> who have crafted this theme. Premium support
+														is limited to pro version only.</p>
+													<p class="fw-bold mb-0"><a class="stretched-link"
+															href="https://themeselection.com/support/"
+															target="_blank">Get support <i
+																class="bx bx-chevron-right"></i></a></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+
+						</div>-->
+						<!-- / Content -->
+
+
+						<footer class="content-footer footer">
+							<div
+								class="container-fluid d-flex flex-wrap justify-content-between align-items-center text-center py-3">
+								<div>
+									© 2023-
+									<script>
+										<!-- document.write('0'+(new Date().getMonth()+1))
+										 document.write('0'+(new Date().getDay())-->
+									</script>
+
+									<a href="https://themeselection.com" class="footer-text fw-medium"
+										target="_blank">ThemeSelection</a>, Hand-crafted
+									&amp; Made with ❤️
+
+								</div>
+								<div>
+
+									<a href="https://www.facebook.com/ThemeSelections/" class="footer-link me-3"
+										target="_blank"><i class="tf-icons bx bxl-facebook"></i></a>
+
+									<a href="https://twitter.com/Theme_Selection" class="footer-link me-3"
+										target="_blank"><i class="tf-icons bx bxl-twitter"></i></a>
+
+									<a href="https://github.com/themeselection" class="footer-link me-3"
+										target="_blank"><i class="tf-icons bx bxl-github"></i></a>
+
+									<a href="https://dribbble.com/themeselection" class="footer-link me-3"
+										target="_blank"><i class="tf-icons bx bxl-dribbble"></i></a>
+
+									<a href="https://www.instagram.com/themeselection/" class="footer-link me-3"
+										target="_blank"><i class="tf-icons bx bxl-instagram"></i></a>
+
+								</div>
+							</div>
+						</footer>
+
+
+					</div>
+					<!-- Content wrapper -->
+
+				</div>
+				<!-- / Layout page -->
+
+	</body>
+	<!-- Overlay -->
+	<div class="layout-overlay layout-menu-toggle"></div>
+
+	<!-- Drag Target Area To SlideIn Menu On Small Screens -->
+	<div class="drag-target"
+		style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+	</div>
+	</div>
+	<!-- / Layout wrapper -->
+	<script th:src="@{/assets/vendor/libs/jquery/jquery.js}"></script>
+	<script th:src="@{/assets/vendor/libs/highlight/highlight.js}"></script>
+	<script th:src="@{/assets/vendor/libs/clipboard/clipboard.js}"></script>
+
+	<script th:src="@{/assets/vendor/libs/popper/popper.js}"></script>
+	<script th:src="@{/assets/vendor/js/bootstrap.js}"></script>
+	<script th:src="@{/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js}"></script>
+	<script th:src="@{/assets/vendor/libs/hammer/hammer.js}"></script>
+	<script th:src="@{/assets/vendor/js/menu.js}"></script>
+	<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> -->
+	<!-- Vendors JS -->
+
+
+	<!-- Page JS -->
+	<script th:src="@{/assets/js/docs.js}"></script>
+</th:block>
+
+</html>
