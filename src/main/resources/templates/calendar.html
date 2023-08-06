@@ -30,6 +30,8 @@
 	<th:block th:replace="~{./include/layout::setContent(~{::#calendar-container})}">
   <!-- calendar 태그 -->
   <div id='calendar-container'>
+	  <hr class="my-5">
+	  여기는 어디로??
     <div id='calendar'></div>
   </div>
   </th:block>
@@ -38,7 +40,7 @@
     $(function(){
 		
 		$.ajax({
-			url:'/test',
+			url:'/reservation/reservList',
 			type:'get',
 			success : (data)=>{
 				console.log('test성공')
@@ -87,7 +89,8 @@
           calendar.unselect()
         },
         // 이벤트 
-        events: data
+        events: data,
+        eventColor : '#ff385c'
       });
       // 캘린더 랜더링
       calendar.render();

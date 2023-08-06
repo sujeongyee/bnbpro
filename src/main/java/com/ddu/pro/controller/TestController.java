@@ -12,4 +12,9 @@ public class TestController {
 	public String test() {
 		return "userservice/userservice";
 	}
+	
+	@GetMapping("/updateUser")
+	public String test2() {
+		return "userservice/updateReservation";
+	}
 }
