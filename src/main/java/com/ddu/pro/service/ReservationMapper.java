@@ -10,4 +10,5 @@ import com.ddu.pro.command.ReservationVO;
 public interface ReservationMapper {
 	ArrayList<ReservationVO> getReserv();
 	ReservationVO getDetailRes(@Param("res_num") int res_num, @Param("room_num") int room_num);
+	int updateReserv(ReservationVO vo);
 }
