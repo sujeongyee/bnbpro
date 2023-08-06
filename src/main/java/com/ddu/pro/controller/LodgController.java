@@ -42,7 +42,6 @@ public class LodgController {
 		}
 		
 		lodgmentSerivce.lodgmentRegist(vo, list);
-		System.out.println("여기가 문제인가");
 		ra.addFlashAttribute("msg", "등록이 완료 됐습니다!");
 		return "redirect:/main";
 	}
