@@ -9,4 +9,14 @@
 	<select id="getDetailRes">
 		select * from reservation where room_num = #{room_num} and res_num = #{res_num}
 	</select>
+	<update id="updateReserv">
+		update reservation set 
+			room_num = 503,
+			res_startdate = #{res_startdate},
+			res_enddate = #{res_enddate},
+			res_price = #{res_price},
+			res_users = #{res_users},
+			room_num = #{room_num}
+			 where res_num = #{res_num}
+	</update>
   </mapper>

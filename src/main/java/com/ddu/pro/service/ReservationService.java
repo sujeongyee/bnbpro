@@ -8,4 +8,5 @@ public interface ReservationService {
 	
 	ArrayList<ReservationVO> getReserv();
 	ReservationVO getDetailRes(int res_num, int room_num);
+	int updateReserv(ReservationVO vo);
 }

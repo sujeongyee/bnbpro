@@ -14,14 +14,17 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	@Override
 	public ArrayList<ReservationVO> getReserv() {
-		// TODO Auto-generated method stub
 		return reservationMapper.getReserv();
 	}
 
 	@Override
 	public ReservationVO getDetailRes(int res_num, int room_num) {
-		// TODO Auto-generated method stub
 		return reservationMapper.getDetailRes(res_num, room_num);
+	}
+
+	@Override
+	public int updateReserv(ReservationVO vo) {
+		return reservationMapper.updateReserv(vo);
 	}
 
 }
