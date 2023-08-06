@@ -61,9 +61,16 @@
     	font-weight: 700;
     	font-style: normal;
 		}
+		@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
 		
 		body {
-			font-family: 'SUITE-Regular';
+			font-family: 'LINESeedKR-Bd';
+			font-size: 15px;
 		}
 		
 		.mb-2 {
@@ -72,6 +79,15 @@
 		
 		.card {
 			width: 500px;
+		}
+		
+		.logo-img{
+			width: 30px;
+			height: 30px;
+		}
+		
+		a {
+			color: #ff385c;
 		}
 		
 	</style>
@@ -90,9 +106,12 @@
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
+                <a href="login" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
-                    <svg
+					  <div >
+			  		 <img src="assets/img/favicon/logo3.png" alt="로고이미지" class="logo-img">
+			          </div>
+                   <!-- <svg
                       width="25"
                       viewBox="0 0 25 42"
                       version="1.1"
@@ -144,7 +163,7 @@
                           </g>
                         </g>
                       </g>
-                    </svg>
+                    </svg>-->
                   </span>
                   <span class="app-brand-text demo text-body fw-bolder">AIRBNB</span>
                 </a>
@@ -210,8 +229,8 @@
               </form>
 
               <p class="text-center">
-                <span>이미 계정이 있으시다구요?</span>
-                <a href="/">
+                <span style="color: black;">이미 계정이 있으시다구요?</span>
+                <a href="/" >
                   <span>로그인하러가기</span>
                 </a>
               </p>
