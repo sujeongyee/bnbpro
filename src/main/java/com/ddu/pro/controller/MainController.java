@@ -21,5 +21,5 @@ public class MainController {
 	public String main() {
 		return "main";
 	}
-	//테스트
+	//테스트 ddu 로 들어옴
 }
