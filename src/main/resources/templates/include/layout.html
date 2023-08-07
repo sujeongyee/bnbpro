@@ -53,7 +53,8 @@
 		<link rel="stylesheet" th:href="@{/assets/vendor/css/core.css}">
 		<link rel="stylesheet" th:href="@{/assets/css/demo.css}">
 		<link rel="stylesheet" th:href="@{/assets/css/docs.css}">
-
+		<!--<link rel="stylesheet" th:href="@{/assets/vendor/css/theme-default.css}" class="template-customizer-theme-css" />
+-->
 		<!--Vendors CSS-->
 		<link rel="stylesheet" th:href="@{/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css}">
 		<link rel="stylesheet" th:href="@{/assets/vendor/libs/highlight/highlight.css}">
@@ -89,6 +90,8 @@
 		<script type="text/javascript" src="https://a.omappapi.com/app/js/api.min.js" async="" data-user="252882"
 			data-account="269977"></script>
 		<link rel="stylesheet" href="https://a.omappapi.com/app/js/api.min.css" id="omapi-css" media="all">
+		<script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  
 		<script async="" src="https://script.hotjar.com/modules.92ff9978854791af68a7.js" charset="utf-8"></script>
 		<style>
 			@font-face {
@@ -561,10 +564,16 @@
 	<script th:src="@{/assets/vendor/js/menu.js}"></script>
 	<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> -->
 	<!-- Vendors JS -->
-
+	 <!-- Main JS -->
+  <script th:src="@{/assets/js/main.js}"></script>
 
 	<!-- Page JS -->
 	<script th:src="@{/assets/js/docs.js}"></script>
+	
+	 <!-- Page JS -->
+  <script th:src="@{/assets/js/pages-account-settings-account.js}"></script>
+	
+	
 </th:block>
 
 </html>

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class LodgmentVO {
 	
-	private Integer lodg_num;
+	private String lodg_num;
 	private String lodg_type;
 	private String lodg_name;
 	private String lodg_rg;
