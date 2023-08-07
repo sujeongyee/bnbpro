@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ddu.pro.command.ReservationVO;
+import com.ddu.pro.util.Criteria;
 @Service("reservationService")
 public class ReservationServiceImpl implements ReservationService{
 	
@@ -13,8 +14,8 @@ public class ReservationServiceImpl implements ReservationService{
 	ReservationMapper reservationMapper;
 	
 	@Override
-	public ArrayList<ReservationVO> getReserv() {
-		return reservationMapper.getReserv();
+	public ArrayList<ReservationVO> getReserv(String bn_id, Criteria cri) {
+		return reservationMapper.getReserv(bn_id, cri);
 	}
 
 	@Override
@@ -25,6 +26,24 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public int updateReserv(ReservationVO vo) {
 		return reservationMapper.updateReserv(vo);
+	}
+
+	@Override
+	public int deleteReserv(int res_num) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getTotal(String bn_id, Criteria cri) {
+		// TODO Auto-generated method stub
+		return reservationMapper.getTotal(bn_id, cri);
+	}
+
+	@Override
+	public ArrayList<ReservationVO> getReservAll(String bn_id) {
+		// TODO Auto-generated method stub
+		return reservationMapper.getReservAll(bn_id);
 	}
 
 }

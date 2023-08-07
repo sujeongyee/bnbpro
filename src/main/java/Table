@@ -33,7 +33,8 @@ create table reservation (
     res_price int (30),
     res_users int(20),
     user_id varchar(30),
-    room_num int    
+    room_num int,
+    bn_id varchar(20)    
 );
 
 ## 객실 4

@@ -3,12 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ddu.pro.service.ReservationMapper">
+  	<!-- 예약현황 전체 뽑기(페이징) -->
 	<select id="getReserv">
-		select * from reservation
+		select * from reservation 
+		where bn_id = #{bn_id}
+		order by res_num desc
+		limit #{cri.pageStart}, #{cri.amount}
 	</select>
+	<!-- 예약현황 전체 뽑기(달력) -->
+	<select id="getReservAll">
+		select * from reservation where bn_id = #{bn_id} 
+	</select>
+	
+	<!-- 사업자 아이디에 맞게 데이터 총 갯수 뽑기 -->
+	<select id="getTotal">
+		select count(*) as total from reservation where bn_id = #{bn_id}
+	</select>
+	
+	
+	<!-- 예약현황 자세히 보기 -->
 	<select id="getDetailRes">
 		select * from reservation where room_num = #{room_num} and res_num = #{res_num}
 	</select>
+	<!-- 예약 수정 -->
 	<update id="updateReserv">
 		update reservation set 
 			room_num = 503,
@@ -19,4 +36,8 @@
 			room_num = #{room_num}
 			 where res_num = #{res_num}
 	</update>
+	<!-- 예약 삭제 -->
+	<delete id="deleteReserv">
+		delete from reservation where res_num = #{res_num}
+	</delete>
   </mapper>
