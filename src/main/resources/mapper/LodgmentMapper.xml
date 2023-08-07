@@ -29,4 +29,12 @@
 	<select id="getLodgList" resultType="LodgmentVO">
 		select * from lodgment where bn_id = #{bn_id}
 	</select>
+	
+	<select id = "getLodgment" resultType="LodgmentVO">
+		select * from lodgment where lodg_num = #{lodg_num}
+	</select>
+	
+	<delete id ="deleteLodg">
+		delete from lodgment where lodg_num = #{lodg_num}
+	</delete>
   </mapper>

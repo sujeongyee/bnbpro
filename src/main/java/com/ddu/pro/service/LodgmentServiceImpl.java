@@ -22,7 +22,8 @@ public class LodgmentServiceImpl implements LodgmentService {
 
 	@Value("${project.upload.path}")
 	private String uploadPath;
-
+	
+	//숙소 등록할때 이미지 저장해주는 폴더 생성
 	public String makeFolder() {
 
 		String path = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
@@ -33,7 +34,8 @@ public class LodgmentServiceImpl implements LodgmentService {
 
 		return path; // 날짜 폴더명 반환
 	}
-
+	
+	// 숙소 등록
 	@Override
 	public int lodgmentRegist(LodgmentVO vo, List<MultipartFile> list) {
 		
@@ -74,11 +76,23 @@ public class LodgmentServiceImpl implements LodgmentService {
 		}
 		return 1;
 	}
+	
+	// 메인에서 모든 숙소 출력
+	@Override
+	public List<LodgmentVO> getLodgList(String bn_id) {		
+		return lodgmentMapper.getLodgList(bn_id);
+	}
+	
+	// 수정 버튼 누른 숙소 정보 가져오기
+	@Override
+	public LodgmentVO getLodgment(String lodg_num) {
+		return lodgmentMapper.getLodgment(lodg_num);
+	}
 
 	@Override
-	public List<LodgmentVO> getLodgList(String bn_id) {
+	public void deleteLodg(String lodg_num) {
+		lodgmentMapper.deleteLodg(lodg_num);
 		
-		return lodgmentMapper.getLodgList(bn_id);
 	}
 
 }

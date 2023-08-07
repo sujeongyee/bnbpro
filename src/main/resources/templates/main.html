@@ -153,6 +153,15 @@
 		body {
 			background-color: rgb(250, 250, 250) ;
 		}
+		.btn-area {
+			margin-top: 15px;
+		}
+		.btn-area > button {
+			width: 162.5px;
+			margin-left: 5px;
+		}
+		
+		
 	</style>
 
 	
@@ -351,12 +360,30 @@
             		   <h4>[[${vo.lodg_name}]]</h4>
             		   <p>[[${vo.lodg_rg}]]</p>
             		   <p>[[${vo.lodg_content}]]</p>
-            		   <p class="fw-bold mb-0"><a class="stretched-link" href="quick-start.html">상세보기 <i class="bx bx-chevron-right"></i></a></p>
+            		   <p class="fw-bold mb-0"><a class="" href="quick-start.html">상세보기 <i class="bx bx-chevron-right"></i></a></p>
+					   <div class="btn-area">
+					   <button type="button" class="btn btn-outline-secondary" th:onclick="'location.href=\''+@{/lodgment/lodgupdate(lodg_num=${vo.lodg_num})}+'\''">수정하기</button>
+					   
+					   <button type="button" class="btn btn-outline-secondary" th:onclick="deletelodg()" th:value="${vo.lodg_num}">삭제하기</button>	
+					   </div>				   
 				   </div>
         	  </div>
       	  </div>	   
 					   
 	  </th:block>
+	  <!--"'location.href=\''+@{/lodgment/lodgdelete(lodg_num=${vo.lodg_num})}+'\''"-->
+	  <script th:inline="javascript">
+		  
+		  function deletelodg(){
+			  if(confirm("숙소 정보를 삭제하시겠어요?")){
+				 console.log(event.target.value)
+				 location.href = '/lodgment/lodgdelete?lodg_num='+event.target.value;
+			  }else{
+				 location.href = '/main'; 
+			  }
+		  }
+	  </script>
+	  
       
       <!--<div class="col-md-4 mb-4">
         <div class="card">
@@ -414,12 +441,7 @@
             </ul>
           </nav>
       </div>
-      
-      
-      
-      
-      
-      
+           
     </div>
   </div>
 
