@@ -7,6 +7,18 @@
 	<select id="getReserv">
 		select * from reservation 
 		where bn_id = #{bn_id}
+		<if test="cri.searchName !=null and cri.searchName!=''">
+		and res_name like concat ('%',#{cri.searchName},'%')
+		</if>
+		<if test="cri.searchPhone !=null and cri.searchPhone!=''">
+		and res_phone like concat ('%',#{cri.searchPhone},'%')
+		</if>
+		<if test="cri.searchId !=null and cri.searchId!=''">
+		and user_id like concat ('%',#{cri.searchId},'%')
+		</if>
+		<if test="cri.searchRoomnum !=null and cri.searchRoomnum !=''">
+		and room_num like concat ('%',#{cri.searchRoomnum},'%')
+		</if>
 		order by res_num desc
 		limit #{cri.pageStart}, #{cri.amount}
 	</select>

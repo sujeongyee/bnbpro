@@ -30,6 +30,9 @@ public class ReservationController {
 	// 예약 정보 전체 조회
 	@GetMapping("/allList")
 	public String getAllList(Model model, Criteria cri) {
+		System.out.println("##################################");
+		System.out.println(cri.toString());
+		System.out.println("##################################");
 		String bn_id = "admin";
 		PageVO page = new PageVO(cri, reservationService.getTotal(bn_id, cri));
 		model.addAttribute("list",reservationService.getReserv(bn_id, cri));
