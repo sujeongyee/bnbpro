@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,9 @@ public class LodgController {
 	@Autowired
 	@Qualifier("lodgmentService")
 	private LodgmentService lodgmentSerivce;
+	
+	@Value("${project.upload.path}")
+	private String uploadPath;
 	
 	@GetMapping("/regist")
 	public String registlodg() {
@@ -62,6 +66,30 @@ public class LodgController {
 	@GetMapping("/lodgdelete")
 	public String lodgdelte(@RequestParam("lodg_num") String lodg_num) {
 		lodgmentSerivce.deleteLodg(lodg_num);
+		return "redirect:/main";
+	}
+	
+	@GetMapping("/sample")
+	public String sample(Model model) {
+		LodgmentVO vo = lodgmentSerivce.getLodgment("1");
+		model.addAttribute("vo", vo);
+		return "lodgment/sample";
+	}
+	
+	@PostMapping("/updatelodg")
+	public String updatelodg(LodgmentVO vo,@RequestParam("file") List<MultipartFile> list,
+							 @RequestParam("lodg_num") String lodg_num) {
+		
+		System.out.println("---------------------");
+		list = list.stream().filter(p->p.isEmpty()==false).collect(Collectors.toList());
+		for(MultipartFile file: list) {
+			if(file.getContentType().contains("image")==false) {
+				return "redirect:/lodgment/regist"; // 이미지가 아니라면 list목록으로
+			}
+		}
+		
+		lodgmentSerivce.updateLodg(lodg_num, list, vo);
+		
 		return "redirect:/main";
 	}
 	

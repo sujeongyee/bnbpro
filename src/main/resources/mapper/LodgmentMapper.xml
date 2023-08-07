@@ -37,4 +37,18 @@
 	<delete id ="deleteLodg">
 		delete from lodgment where lodg_num = #{lodg_num}
 	</delete>
+	
+	<update id="updateLodg">
+		update lodgment set lodg_type=#{lodg_type},
+							lodg_name=#{lodg_name},
+							lodg_rg=#{lodg_rg},
+							lodg_addr=#{lodg_addr},
+							lodg_img_filename=#{lodg_img_filename},
+							lodg_img_filepath=#{lodg_img_filepath},
+							lodg_img_uuid=#{lodg_img_uuid},
+							lodg_ph=#{lodg_ph},
+							lodg_content=#{lodg_content}
+	    where lodg_num = #{lodg_num}
+	</update>
+	
   </mapper>

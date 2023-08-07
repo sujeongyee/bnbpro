@@ -95,4 +95,39 @@ public class LodgmentServiceImpl implements LodgmentService {
 		
 	}
 
+	@Override
+	public void updateLodg(String lodg_num, List<MultipartFile> list, LodgmentVO vo) {
+		
+		for(MultipartFile file : list) {
+			String origin = file.getOriginalFilename();
+			String filename = origin.substring(origin.lastIndexOf("\\")+1);
+			String uuid = UUID.randomUUID().toString();
+			String filepath=makeFolder();
+			String savepath=uploadPath+"/"+filepath+"/"+uuid+"_"+filename;
+			
+			try {
+				File save = new File(savepath);
+				file.transferTo(save);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("파일 업로드 진행중 error발생");
+			}
+			System.out.println("여기까지는 옵니까 ============================");
+			lodgmentMapper.updateLodg(LodgmentVO.builder()
+									  .lodg_num(lodg_num)
+									  .lodg_type(vo.getLodg_type())
+									  .lodg_name(vo.getLodg_name())
+									  .lodg_rg(vo.getLodg_rg())
+									  .lodg_addr(vo.getLodg_addr())
+									  .lodg_img_filename(filename)
+									  .lodg_img_filepath(filepath)
+									  .lodg_img_uuid(uuid)
+									  .lodg_ph(vo.getLodg_ph())
+									  .lodg_content(vo.getLodg_content())
+									  .build());
+			
+		}
+		
+	}
+
 }

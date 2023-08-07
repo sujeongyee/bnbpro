@@ -14,5 +14,6 @@ public interface LodgmentService {
 	public List<LodgmentVO> getLodgList(String bn_id); //메인에서 숙소 정보가져오기
 	public LodgmentVO getLodgment(String lodg_num); //수정 누른 숙소 정보
 	public void deleteLodg(String lodg_num); //삭제 누른 숙소
+	public void updateLodg(String lodg_num,List<MultipartFile> list,LodgmentVO vo);
 
 }
