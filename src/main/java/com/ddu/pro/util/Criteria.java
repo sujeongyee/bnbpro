@@ -8,10 +8,10 @@ public class Criteria {
 	private int amount;
 
 	//검색에 필요한 키워드를 선언
-	private String searchWriter;
-	private String searchContent;
-	private String searchTitle;
-	private String searchTitleCont;
+	private String searchName;
+	private String searchPhone;
+	private String searchId;
+	private String searchRoomnum;
 	
 	//기본생성자로 만들어지면 1, 10 기본값
 	public Criteria() {
