@@ -5,7 +5,7 @@
 	<head>
 
 		<link rel="shortcut icon" type="image⁄x-icon" th:href="@{/assets/img/favicon/logo3.png}">
-	
+
 
 		<meta charset="utf-8">
 		<meta name="viewport"
@@ -63,7 +63,7 @@
 
 		<!-- Page CSS -->
 
-		
+
 		<!-- Core JS -->
 		<script th:src="@{/assets/vendor/js/helpers.js}"></script>
 		<style type="text/css">
@@ -91,7 +91,7 @@
 			data-account="269977"></script>
 		<link rel="stylesheet" href="https://a.omappapi.com/app/js/api.min.css" id="omapi-css" media="all">
 		<script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  
+
 		<script async="" src="https://script.hotjar.com/modules.92ff9978854791af68a7.js" charset="utf-8"></script>
 		<style>
 			@font-face {
@@ -102,16 +102,16 @@
 			}
 
 			@font-face {
-    font-family: 'LINESeedKR-Bd';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
-		
-		body {
-			font-family: 'LINESeedKR-Bd';
-			font-size: 15px;
-		}
+				font-family: 'LINESeedKR-Bd';
+				src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+				font-weight: 700;
+				font-style: normal;
+			}
+
+			body {
+				font-family: 'LINESeedKR-Bd';
+				font-size: 15px;
+			}
 
 
 
@@ -131,14 +131,14 @@
 				border-bottom: 3px solid #ff385c;
 
 			}
-			
-			
-		.logo_ {
-			font-family: 'LINESeedKR-Bd';
-			margin-top: 5px;
-			margin-left: 15px;
-			letter-spacing: 4px;
-		}
+
+
+			.logo_ {
+				font-family: 'LINESeedKR-Bd';
+				margin-top: 5px;
+				margin-left: 15px;
+				letter-spacing: 4px;
+			}
 		</style>
 	</head>
 
@@ -196,9 +196,9 @@
 							<div class="navbar-nav align-items-lg-center ms-auto">
 
 								<ul class="navbar-nav">
-          <!-- Technology dropdown -->
-           
-          <!--<li class="nav-item dropdown me-2">
+									<!-- Technology dropdown -->
+
+									<!--<li class="nav-item dropdown me-2">
             <button class="btn dropdown-toggle py-2" type="button" id="livePreview" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="tf-icons bx bx-target-lock me-2"></i> Live preview
             </button>
@@ -218,17 +218,20 @@
               
             </ul>
           </li>-->
-           
-          <li class="nav-item me-2">
-            <a href="#" target="_blank" class="nav-link" style="color: black;font-weight: bold;font-size: 16px;"><!--<i class="tf-icons bx bx-buoy"></i>-->
-              마이페이지</a>
-          </li>
-           
-          <li class="nav-item">
-            <a href="#" target="_blank" class="nav-link" style="color: black;font-weight: bold;font-size: 16px;"><!--<i class="tf-icons bx bx-gift"></i>--> admin님 반갑습니다</a>
-          </li>
-          
-        </ul>
+
+									<li class="nav-item me-2">
+										<a href="#" target="_blank" class="nav-link"
+											style="color: black;font-weight: bold;font-size: 16px;"><!--<i class="tf-icons bx bx-buoy"></i>-->
+											마이페이지</a>
+									</li>
+
+									<li class="nav-item">
+										<a href="#" target="_blank" class="nav-link"
+											style="color: black;font-weight: bold;font-size: 16px;"><!--<i class="tf-icons bx bx-gift"></i>-->
+											admin님 반갑습니다</a>
+									</li>
+
+								</ul>
 
 								<!-- Divider -->
 								<div class="nav-item d-none d-lg-block text-big fw-light lh-1 opacity-25 me-3 ms-1">
@@ -277,10 +280,25 @@
 									<div>숙소등록하기</div>
 								</a>
 							</li>
-							<li class="menu-item">
-								<a href="folder-structure.html" class="menu-link">
-									<div>예약현황</div>
+
+							<li class="menu-item active" style="">
+								<a href="javascript:void(0);" class="menu-link menu-toggle">
+									<div data-i18n="Account Settings">예약 관리</div>
 								</a>
+								<ul class="menu-sub">
+									<li class="menu-item">
+										<a href="/calendar" class="menu-link">
+											<div>예약 현황</div>
+										</a>
+									</li>
+								</ul>
+								<ul class="menu-sub">
+									<li class="menu-item">
+										<a href="/reservation/allList" class="menu-link">
+											<div>예약 리스트</div>
+										</a>
+									</li>
+								</ul>
 							</li>
 							<li class="menu-item">
 								<a href="quick-start.html" class="menu-link">
@@ -313,11 +331,11 @@
 					<div class="content-wrapper">
 
 						<!-- Content -->
-						
+
 						<div class="container-xxl flex-grow-1 container-p-y" th:replace="${content}">
-		
+
 						</div>
-						
+
 						<!--<div class="container-xxl flex-grow-1 container-p-y">
 
 
@@ -564,16 +582,16 @@
 	<script th:src="@{/assets/vendor/js/menu.js}"></script>
 	<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> -->
 	<!-- Vendors JS -->
-	 <!-- Main JS -->
-  <script th:src="@{/assets/js/main.js}"></script>
+	<!-- Main JS -->
+	<script th:src="@{/assets/js/main.js}"></script>
 
 	<!-- Page JS -->
 	<script th:src="@{/assets/js/docs.js}"></script>
-	
-	 <!-- Page JS -->
-  <script th:src="@{/assets/js/pages-account-settings-account.js}"></script>
-	
-	
+
+	<!-- Page JS -->
+	<script th:src="@{/assets/js/pages-account-settings-account.js}"></script>
+
+
 </th:block>
 
 </html>
