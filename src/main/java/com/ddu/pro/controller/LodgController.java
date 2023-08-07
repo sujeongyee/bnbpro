@@ -1,10 +1,12 @@
 package com.ddu.pro.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,11 +30,13 @@ public class LodgController {
 		
 		return "lodgment/regist";
 	}
+	// 숙소 등록하기 기능
 	@PostMapping("/lodgregist")
 	public String lodgregist(LodgmentVO vo ,@RequestParam("file") List<MultipartFile> list, RedirectAttributes ra) {
 
 		
-		list = list.stream().filter(p->p.isEmpty()==false).toList();
+		list = list.stream().filter(p->p.isEmpty()==false).collect(Collectors.toList());
+	
 		
 		for(MultipartFile file: list) {
 			if(file.getContentType().contains("image")==false) {
@@ -46,6 +50,20 @@ public class LodgController {
 		return "redirect:/main";
 	}
 	
+	// 수정하기 버튼 누르면 페이지 이동 (숙소 상세 정보 가지고)
+	@GetMapping("/lodgupdate")
+	public String lodgupdate(@RequestParam("lodg_num") String lodg_num,Model model) {
+
+		LodgmentVO vo = lodgmentSerivce.getLodgment(lodg_num);
+		model.addAttribute("vo", vo);
+		return "lodgment/updatelodg";
+	}
+	
+	@GetMapping("/lodgdelete")
+	public String lodgdelte(@RequestParam("lodg_num") String lodg_num) {
+		lodgmentSerivce.deleteLodg(lodg_num);
+		return "redirect:/main";
+	}
 	
 
 }

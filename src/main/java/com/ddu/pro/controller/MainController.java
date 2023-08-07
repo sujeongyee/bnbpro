@@ -45,23 +45,21 @@ public class MainController {
 		return "join";
 	}
 	
-	
+	// 모든 숙소 정보 리스트 가지고 메인으로
 	@GetMapping("/main")
 	public String main(Model model) {
 		
 		List<LodgmentVO> list= lodgmentSerivce.getLodgList("admin");
-//		for(LodgmentVO vo:list) {
-//			System.out.println(vo.toString());
-//		}
 		model.addAttribute("list", list);
 		return "main";
 	}
 	
+	// 메인에서 이미지 출력해주는 메서드
 	@GetMapping("/display")
 	public @ResponseBody ResponseEntity<byte[]> display(@RequestParam("filename") String filename,
 										  @RequestParam("filepath") String filepath,
 										  @RequestParam("uuid") String uuid){
-		System.out.println("여기는 왔나요?");
+
 		String path = uploadPath + "/" + filepath + "/" + uuid+ "_" + filename;
 		File file = new File(path);
 		byte[] arr = null;
@@ -79,6 +77,7 @@ public class MainController {
 	public String calendar() {
 		return "calendar";
 	}
+	
 	@GetMapping("/test")
 	public @ResponseBody ResponseEntity<List<com.ddu.pro.command.TestVO>> test(){
 		System.out.println("d");
