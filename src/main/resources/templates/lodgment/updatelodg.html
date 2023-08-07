@@ -67,11 +67,11 @@
           <div class="row" style="margin-top: 20px;">
             <div class="mb-3 col-md-6">
               <label for="firstName" class="form-label">숙소명</label>
-              <input class="form-control" type="text" id="firstName" name="lodg_name" th:value="${vo.lodg_name}" autofocus="">
+              <input class="form-control" type="text" id="firstName" name="lodg_name" th:value="${vo.lodg_name}" required="required">
             </div>
             <div class="mb-3 col-md-6">
               <label class="form-label" for="country">숙소타입</label>
-              <select id="country" class="select2 form-select" name = "lodg_type">
+              <select id="country" class="select2 form-select" name = "lodg_type" required="required">
                <option selected="">숙소 형태를 지정해주세요</option>
                <option value="모텔">모텔</option>
                <option value="호텔리조트">호텔리조트</option>
@@ -90,10 +90,10 @@
                     <input class="form-control" type="text" id="sample6_postcode" placeholder="우편번호" style="width: 100%;">
                 </div>
                 <div class="mb-3 col-md-6">										
-                    <input class="form-control" type="text" id="sample6_address" placeholder="주소" style="width: 100%;" name="lodg_rg" th:value="${vo.lodg_rg}">
+                    <input class="form-control" type="text" id="sample6_address" placeholder="주소" style="width: 100%;" name="lodg_rg" th:value="${vo.lodg_rg}" required="required">
                 </div>
                 <div class="mb-3 col-md-6">	
-                    <input class="form-control" type="text" id="sample6_detailAddress" placeholder="상세주소"  style="width: 100%;" name="lodg_addr" th:value="${vo.lodg_addr}"> 
+                    <input class="form-control" type="text" id="sample6_detailAddress" placeholder="상세주소"  style="width: 100%;" name="lodg_addr" th:value="${vo.lodg_addr}" required="required"> 
                 </div>
                 <div class="mb-3 col-md-6">	
                      <input class="form-control" type="text" id="sample6_extraAddress" placeholder="참고항목" style="width: 100%;">
@@ -105,19 +105,19 @@
             
             <div class="mb-3 col-md-6">
               <label for="organization" class="form-label">숙소전화번호</label>
-              <input type="text" class="form-control" id="organization" name="lodg_ph" th:value="${vo.lodg_ph}">
+              <input type="text" class="form-control" id="organization" name="lodg_ph" th:value="${vo.lodg_ph}" required="required">
             </div>
             
             <div class="mb-3 col-md-6">
               <label for="address" class="form-label">숙소 설명</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 20px;" name="lodg_content">[[${vo.lodg_content}]]</textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 20px;" name="lodg_content" required="required" >[[${vo.lodg_content}]]</textarea>
               <!--<input type="text" class="form-control" id="address" name="lodg_content" placeholder="Address" th:value="${vo.lodg_content}">-->
             </div>
             
           </div>
           <div class="mt-2">
-            <button type="submit" class="btn btn-primary me-2" style="background-color: #ff385c; color: white;">Save changes</button>
-            <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+            <button type="submit" class="btn btn-primary me-2" style="background-color: #ff385c; color: white;">정보수정하기</button>
+            <button type="reset" class="btn btn-outline-secondary">취소하기</button>
           </div>
         </form>
       </div>

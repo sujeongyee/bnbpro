@@ -28,6 +28,11 @@
 	
 	<select id="getLodgList" resultType="LodgmentVO">
 		select * from lodgment where bn_id = #{bn_id}
+		limit #{cri.pageStart}, #{cri.amount}
+	</select>
+	
+	<select id="getTotal">
+		select count(*) as total from lodgment where bn_id = #{bn_id}
 	</select>
 	
 	<select id = "getLodgment" resultType="LodgmentVO">
