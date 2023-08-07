@@ -10,11 +10,11 @@ public class TestController {
 	
 	@GetMapping("/user")
 	public String test() {
-		return "userservice/userservice";
+		return "reservation/userservice";
 	}
 	
 	@GetMapping("/updateUser")
 	public String test2() {
-		return "userservice/updateReservation";
+		return "reservation/updateReservation";
 	}
 }

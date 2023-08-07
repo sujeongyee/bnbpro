@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class CalendarVO {
 	private Integer id;
-	private String title;
+	private Integer title;
 	private String start;
 	private String end;
 	private String url;

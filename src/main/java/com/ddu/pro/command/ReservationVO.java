@@ -21,4 +21,5 @@ public class ReservationVO {
 	private Integer res_users;
 	private String user_id;
 	private Integer room_num;
+	private String bn_id;
 }
