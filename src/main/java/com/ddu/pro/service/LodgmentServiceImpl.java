@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import com.ddu.pro.command.LodgmentVO;
+import com.ddu.pro.util.Criteria;
+import com.ddu.pro.util.Criteria2;
 
 @Service("lodgmentService")
 public class LodgmentServiceImpl implements LodgmentService {
@@ -79,8 +81,8 @@ public class LodgmentServiceImpl implements LodgmentService {
 	
 	// 메인에서 모든 숙소 출력
 	@Override
-	public List<LodgmentVO> getLodgList(String bn_id) {		
-		return lodgmentMapper.getLodgList(bn_id);
+	public List<LodgmentVO> getLodgList(String bn_id, Criteria2 cri) {		
+		return lodgmentMapper.getLodgList(bn_id, cri);
 	}
 	
 	// 수정 버튼 누른 숙소 정보 가져오기
@@ -128,6 +130,11 @@ public class LodgmentServiceImpl implements LodgmentService {
 			
 		}
 		
+	}
+
+	@Override
+	public int getTotal(String bn_id, Criteria2 cri) {
+		return lodgmentMapper.getTotal(bn_id, cri);
 	}
 
 }

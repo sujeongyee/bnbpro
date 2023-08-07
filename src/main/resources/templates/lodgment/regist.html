@@ -44,17 +44,17 @@
 						
 					  <form name="actionForm" action="lodgregist" method="post" enctype="multipart/form-data">	
                       <div class="mb-3 row">
-                        <label for="html5-text-input" class="col-md-2 col-form-label">숙소 이름 : </label>
+                        <label for="html5-text-input" class="col-md-2 col-form-label" >숙소 이름 : </label>
                         <div class="col-md-10">
-                          <input class="form-control" type="text" id="html5-text-input" name="lodg_name" placeholder="숙소명을 입력해주세요" required="required"> 
+                          <input class="form-control" type="text" id="html5-text-input" name="lodg_name" th:value="${vo!=null?vo.lodg_name:''}" placeholder="숙소명을 입력해주세요" required="required"> 
                         </div>
                       </div>
                       <div class="mb-3 row">
                         <label for="html5-text-input" class="col-md-2 col-form-label">숙소 주소 : </label>
                         <div class="col-md-10">
                           <input class="form-control" type="text" id="sample6_postcode" placeholder="우편번호">
-                          <input class="form-control" type="text" id="sample6_address" placeholder="주소" name="lodg_rg" required="required">
-                          <input class="form-control" type="text" id="sample6_detailAddress" placeholder="상세주소" name="lodg_addr" required="required">
+                          <input class="form-control" type="text" id="sample6_address" placeholder="주소" name="lodg_rg" required="required" th:value="${vo!=null?vo.lodg_rg:''}">
+                          <input class="form-control" type="text" id="sample6_detailAddress" placeholder="상세주소" name="lodg_addr" required="required" th:value="${vo!=null?vo.lodg_addr:''}">
                           <input class="form-control" type="text" id="sample6_extraAddress" placeholder="참고항목">
                         </div>
                       </div>
@@ -64,24 +64,39 @@
 					  <div class="input-group col-md-10 selectcon">
 						  <label for="inputGroupSelect02" class="form-label">숙소 형태 :</label>
                             <select class="form-select" id="inputGroupSelect02" style="margin-left: 20px;border-top-left-radius:-2; margin-bottom: 10px;" name = "lodg_type" required="required">
-                              <option selected="">숙소 형태를 지정해주세요</option>
-                              <option value="모텔">모텔</option>
-                              <option value="호텔리조트">호텔리조트</option>
-                              <option value="펜션">펜션</option>
-                              <option value="게스트하우스">게스트하우스</option>
-                              <option value="캠핑글램핑">캠핑글램핑</option>
+                              <th:block th:if="${vo!=null}">
+								<option>숙소 형태를 지정해주세요</option>
+                              	<option value="모텔" th:selected="${vo.lodg_type=='모텔'}">모텔</option>
+                              	<option value="호텔리조트" th:selected="${vo.lodg_type=='호텔리조트'}">호텔리조트</option>
+                              	<option value="펜션" th:selected="${vo.lodg_type=='펜션'}">펜션</option>
+                              	<option value="게스트하우스" th:selected="${vo.lodg_type=='게스트하우스'}">게스트하우스</option>
+                              	<option value="캠핑글램핑" th:selected="${vo.lodg_type=='캠핑글램핑'}">캠핑글램핑</option>
+							  </th:block>
+                              <th:block th:unless="${vo!=null}">
+								<option selected="">숙소 형태를 지정해주세요</option>
+                              	<option value="모텔" >모텔</option>
+                              	<option value="호텔리조트">호텔리조트</option>
+                              	<option value="펜션">펜션</option>
+                              	<option value="게스트하우스">게스트하우스</option>
+                              	<option value="캠핑글램핑">캠핑글램핑</option>
+							  </th:block>
+                             
 
                             </select>
                           </div>
 					  <div class="mb-3 row">
-                        <label for="html5-text-input" class="col-md-2 col-form-label">숙소 전화번호 : </label>
+                        <label for="html5-text-input" class="col-md-2 col-form-label">숙소 전화번호 : </label> [[${valid_lodg_ph}]]
                         <div class="col-md-10">
-                          <input class="form-control" type="text" id="html5-text-input" name="lodg_ph" placeholder="010-xxxx-xxxx" required="required" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}">
+                          <input class="form-control" type="text" id="html5-text-input" name="lodg_ph" th:value="${vo!=null?vo.lodg_ph:''}" placeholder="010-xxxx-xxxx" required="required" >
                         </div>
                       </div>
                       <div>
                         <label for="exampleFormControlTextarea1" class="form-label">숙소 설명</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 20px;" name="lodg_content" required="required"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 20px;" name="lodg_content" required="required">
+							<th:block th:if="${vo!=null}">
+								[[${vo.lodg_content}]]
+							</th:block>
+						</textarea>
                       </div>
                       
                       <div class="mb-3">

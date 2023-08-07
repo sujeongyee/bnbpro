@@ -3,12 +3,17 @@ package com.ddu.pro.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,8 +41,15 @@ public class LodgController {
 	}
 	// 숙소 등록하기 기능
 	@PostMapping("/lodgregist")
-	public String lodgregist(LodgmentVO vo ,@RequestParam("file") List<MultipartFile> list, RedirectAttributes ra) {
+	public String lodgregist(@Valid @ModelAttribute("vo") LodgmentVO vo , Errors err, @RequestParam("file") List<MultipartFile> list, RedirectAttributes ra,Model model) {
 
+		if(err.hasErrors()) {
+			List<FieldError> errList = err.getFieldErrors();
+			for(FieldError err2 : errList) {
+				model.addAttribute("valid_"+err2.getField(), err2.getDefaultMessage());
+			}
+			return "/lodgment/regist";
+		}
 		
 		list = list.stream().filter(p->p.isEmpty()==false).collect(Collectors.toList());
 	
