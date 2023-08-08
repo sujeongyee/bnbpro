@@ -98,4 +98,9 @@ public class RoomServiceImpl implements RoomService {
 		return roomMapper.getRoomnum();
 	}
 
+	@Override
+	public ArrayList<RoomImgVO> getimgList(int room_num) {
+		return roomMapper.getimgList(room_num);
+	}
+
 }

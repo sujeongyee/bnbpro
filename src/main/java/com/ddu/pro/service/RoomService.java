@@ -26,4 +26,7 @@ public interface RoomService {
 	
 	//제일 최근 등록된 room_num 조회
 	ArrayList<RoomVO> getRoomnum();
+	
+	//객실 이미지 조회
+	ArrayList<RoomImgVO> getimgList(int room_num);
 }

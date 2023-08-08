@@ -30,4 +30,7 @@ public interface RoomMapper {
 	
 	// 최근 번호 조회
 	ArrayList<RoomVO> getRoomnum();
+	
+	// 이미지 조회
+	ArrayList<RoomImgVO> getimgList(int room_num);
 }
