@@ -55,5 +55,5 @@
 							lodg_content=#{lodg_content}
 	    where lodg_num = #{lodg_num}
 	</update>
-	
+
   </mapper>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset='utf-8' />
+  <!-- 화면 해상도에 따라 글자 크기 대응(모바일 대응) -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <!-- jquery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script th:src="@{/js/jquery-1.12.1.min.js}"></script>
+	<script th:src="@{/js/jquery-ui.min.js}"></script>
+	<script th:src="@{/js/style.js}"></script>
+  <link rel="shortcut icon" type="image⁄x-icon" href="../assets/img/favicon/logo4.png">
+  <style>
+	  
+	
+	   #cs {
+		   width: 100%;
+		   text-align: center;
+		   margin-top: 50px;
+	   }
+	   .col-lg-8 {
+		   display: inline-block;
+		   width: 50%;
+	   }
+	   
+	   
+  </style>
+</head>
+<!--
+	
+			숙소별 문의 (그 숙소의 모든 객실)
+			객실별 문의 (숙소 -> 특정 객실)
+			최신순 오래된순
+			답변안한 문의
+-->
+<body style="padding:30px;">
+	
+	<th:block th:replace="~{./include/layout::setContent(~{::#cs})}">
+		
+		<div id="cs">
+			
+	
+  <style>
+	  
+	  .list-group-item.active {
+    	z-index: 2;
+    	color: #fff;
+    	background-color: #ff385c;
+   	    border-color: rgb(207 207 207)
+	   }
+  </style>
+
+		<div class="col-lg-8">
+        <div class="demo-inline-spacing mt-3">
+          <div class="list-group list-group-horizontal-md text-md-center">
+            <a class="list-group-item list-group-item-action active" id="home-list-item" data-bs-toggle="list" href="#horizontal-home">숙소별 문의보기</a>
+            <a class="list-group-item list-group-item-action" id="profile-list-item" data-bs-toggle="list" href="#horizontal-profile">모든 문의보기</a>
+          </div>
+           
+          <div class="tab-content px-0 mt-0" style="padding: 0;">
+			  
+			  
+			  <!-- 모든 문의 -->
+            <div class="tab-pane fade active show" id="horizontal-home">
+		숙소 선택하기
+		     		
+		<style>
+			.lodglist {
+				
+				display: inline-block;
+				padding: 0;
+				}
+			.lodglist > .list-group-item {
+				margin:0;
+				background-color: rgb(255 255 255 / 65%);
+			}
+			
+			.form-check-input:checked {
+    background-color: rgb(255 100 100 / 36%);}
+    	
+    		.table {
+				--bs-table-hover-bg:#ff385c14;
+			}
+    	
+		</style>
+		
+		<div class="">
+		<form name="search" action="search" method="get">
+        <div class="row" style="margin-top: 15px;">
+			<th:block th:each="vo:${lodgVO}">
+				<div class="list-group lodglist col-lg-3">
+            		<label class="list-group-item">
+              		<input class="form-check-input me-1" type="checkbox" name="lodg" th:value="${vo.lodg_num}">
+             			 [[${vo.lodg_name}]]
+            		</label>
+           </div>				
+			</th:block>          
+        </div> 
+        <input type="submit" class="btn rounded-pill btn-outline-secondary" id="selectBtn" style="margin-top: 15px;margin-bottom: 20px;" value="선택한 숙소 적용하기"></input>
+        </form>
+      </div>
+      
+      <th:block th:if="${list}!=null">
+		  <div class="card" style="width: 99%;">
+  <h5 class="card-header" style="color: #ff385c;">선택한 숙소 전체 문의내용</h5>
+  <div class="table-responsive text-nowrap">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>숙소명</th>
+          <th>방이름</th>
+          <th>회원아이디</th>
+          <th>문의내용</th>
+          <th>답변여부</th>
+          <th>등록일</th>
+        </tr>
+      </thead>
+      <tbody class="table-border-bottom-0">
+		  <th:block th:each="vo ,status: ${list}" >
+        <tr>
+          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>[[${vo.lodg_name}]]</strong></td>
+          <td>[[${vo.room_name}]]</td>
+          <td>[[${vo.user_id}]]</td>
+          <td>[[${vo.ask_content}]]</td>
+          <td>
+			  <th:block th:if="${vo.answer_check=='y'}">
+					  <p style="">O</p>
+				  </th:block>
+				  <th:block th:unless="${vo.answer_check=='y'}">
+					  <p style="color: #ff385c;padding-top: 15px;">X</p>
+				  </th:block>
+           <!-- <div class="dropdown">
+              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+              <div class="dropdown-menu">
+				  
+                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>답변하러가기</a>
+                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+              </div>
+            </div>-->
+          </td>
+          <td>[[${ #temporals.format(vo.ask_regdate,'yy년MM월dd일 hh:mm:ss')}]]</td>
+        </tr>
+        </th:block>
+      </tbody>
+    </table>
+  </div>
+</div>
+	  </th:block>
+      
+      
+				
+            </div>
+ 
+            <!--숙소-->
+            <!-- ......................객실 -->
+            
+            <div class="tab-pane fade" id="horizontal-profile">
+             				
+				<div class="card" style="width: 99%;">
+  <h5 class="card-header" style="color: #ff385c;">숙소 전체 문의내용</h5>
+  <div class="table-responsive text-nowrap">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>숙소명</th>
+          <th>방이름</th>
+          <th>회원아이디</th>
+          <th>문의내용</th>
+          <th>답변여부</th>
+          <th>등록일</th>
+        </tr>
+      </thead>
+      <tbody class="table-border-bottom-0">
+		  <th:block th:each="vo,status: ${list2}" >
+        <tr>
+          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>[[${vo.lodg_name}]]</strong></td>
+          <td>[[${vo.room_name}]]</td>
+          <td>[[${vo.user_id}]]</td>
+          <td>[[${vo.ask_content}]]</td>
+          <td>
+			  <th:block th:if="${vo.answer_check=='y'}">
+					  <p style="">O</p>
+				  </th:block>
+				  <th:block th:unless="${vo.answer_check=='y'}">
+					  <p style="color: #ff385c;padding-top: 15px;">X</p>
+				  </th:block>
+           <!-- <div class="dropdown">
+              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+              <div class="dropdown-menu">
+				  
+                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>답변하러가기</a>
+                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+              </div>
+            </div>-->
+          </td>
+          <td>[[${ #temporals.format(vo.ask_regdate,'yy년MM월dd일 hh:mm:ss')}]]</td>
+        </tr>
+        </th:block>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+		
+            </div>
+            <!--객실끗-->
+          </div>
+        </div>
+      </div>
+			
+		</div>
+		
+  	</th:block>
+  	
+  	<script>
+		  $("#selectBtn").click(function(){
+			  event.preventDefault();
+			  if($("input[name=lodg]:checked").length == 0){
+				  alert('1개 이상의 선택은 필수입니다.')
+			  }else{
+				  document.search.submit();
+			  }
+			  
+		  })
+			
+			
+		
+		  
+	</script>  
+
+</body>
+</html>

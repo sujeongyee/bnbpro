@@ -1,0 +1,15 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.ddu.pro.service.CSMapper">
+  	<select id="getLodgName">
+  		select * from lodgment where bn_id = #{bn_id}
+  	</select>
+  	<select id="getLodgIngury">
+  		select * from room r left join lodgment l on r.lodg_num = l.lodg_num left join userservice u on r.room_num = u.room_num where r.lodg_num in (#{lodg}) and u.ask_content is not null
+    </select>
+  	<select id="getAll">
+  	 select * from room r left join lodgment l on r.lodg_num = l.lodg_num left join userservice u on r.room_num = u.room_num where u.ask_content is not null
+  	</select>
+  
+  </mapper>
