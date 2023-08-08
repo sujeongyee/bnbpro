@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<th:block th:replace="~{./include/layout::setContent(~{::.card})}">
+		<!-- Striped Rows -->
+		<div class="card">
+			<hr class="my-5">
+			<h5 class="card-header">검색</h5>
+			<div>
+				<div class="mb-3 row">
+		          <label for="html5-date-input" class="col-md-2 col-form-label">시작일</label>
+		          <div class="col-md-10">
+		            <input class="form-control" style="width: 30%;" type="date" value="2023-08-08" id="html5-date-input">
+		          </div>
+		          <label for="html5-date-input" class="col-md-2 col-form-label">종료일</label>
+		          <div class="col-md-10">
+		            <input class="form-control" style="width: 30%;" type="date" value="2023-08-08" id="html5-date-input">
+		          </div>
+				</div>
+				
+				<div>
+					<span>
+			          <label for="defaultFormControlInput" class="form-label">사용자명</label>
+			          <input type="text" class="form-control" style="width:30%" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp">
+			        </span>
+					
+					<span>
+			          <label for="defaultFormControlInput" class="form-label">객실번호</label>
+			          <input type="text" class="form-control" style="width: 30%;" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp">
+			        </span>
+		        </div>
+		        <div class="demo-inline-spacing">
+		          <button type="button" class="btn rounded-pill btn-secondary">검색</button>
+		        </div>
+		 	</div>
+			<hr class="my-5">
+			
+		   <!-- Table within card -->
+              <h5 class="mb-4">리뷰 상세</h5>
+              <div class="table-responsive text-nowrap">
+                <table class="table card-table">
+                  <thead>
+                    <tr>
+                      <th>리뷰등록일</th>
+                      <th>객실번호</th>
+                      <th>내용</th>
+                      <th>별점</th>
+                      <th>회원ID</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-border-bottom-0">
+					<th:block th:each="vo : ${list}">
+	                    <tr>
+	                      <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>[[${ #temporals.format(vo.rev_regdate, 'yy년MM월dd일')}]]</strong></td>
+	                      <td>[[${vo.room_num}]]</td>
+	                      <td>
+							  <a th:href="@{reviewDetail(rev_num=${vo.rev_num},user_id=${vo.user_id})}">
+								  [[${vo.rev_content}]]
+							  </a>
+						  </td>
+	                      <td>[[${vo.rev_star}]]</td>
+	                      <td>[[${vo.user_id}]]
+	                        
+	                      </td>
+	                    </tr>
+                 	</th:block>
+             
+                  </tbody>
+                </table>
+              </div>
+              <!--/ Table within card -->
+		</div>
+		<!--/ Striped Rows -->
+		
+		
+
+	</th:block>
+</body>
+
+</html>
