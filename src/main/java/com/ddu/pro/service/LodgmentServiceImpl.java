@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import com.ddu.pro.command.LodgmentVO;
-import com.ddu.pro.util.Criteria;
 import com.ddu.pro.util.Criteria2;
 
 @Service("lodgmentService")
