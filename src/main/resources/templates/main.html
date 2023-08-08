@@ -360,7 +360,9 @@
             		   <h4>[[${vo.lodg_name}]]</h4>
             		   <p>[[${vo.lodg_rg}]]</p>
             		   <p>[[${vo.lodg_content}]]</p>
-            		   <p class="fw-bold mb-0"><a class="" href="quick-start.html">상세보기 <i class="bx bx-chevron-right"></i></a></p>
+            		   <p class="fw-bold mb-0"><a class="" th:href="@{/room/List(lodg_num=${vo.lodg_num})}">상세보기 <i class="bx bx-chevron-right"></i></a>
+            		    &nbsp&nbsp&nbsp&nbsp<a class="" th:href="@{/room/registRoom(lodg_num=${vo.lodg_num})}">객실 등록 <i class="bx bx-chevron-right"></i></a></p>
+            		   
 					   <div class="btn-area">
 					   <button type="button" class="btn btn-outline-secondary" th:onclick="'location.href=\''+@{/lodgment/lodgupdate(lodg_num=${vo.lodg_num})}+'\''">수정하기</button>
 					   

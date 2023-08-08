@@ -3,160 +3,193 @@
 
 <body>
 	<th:block th:replace="~{./include/layout::setContent(~{::.card})}">
-		<div class="card mb-4">
+		<div class="card">
 			<hr class="my-5">
-			<h5 class="card-header">숙소 정보</h5>
-			<!-- Account -->
 			<div class="card-body">
-				<form name="updateForm " id="formAccountSettings" action="updatelodg" method="post"
-					enctype="multipart/form-data">
-					<div class=" img-part" style="padding-bottom: 30px;">
-						<input type="hidden" name="lodg_num">
-						<div class="d-flex align-items-start align-items-sm-center gap-4">
-							<img src="##" alt="이미지" class="d-block rounded" height="200" width="200"
-								id="uploadedAvatar">
-							<div class="button-wrapper" style="margin-top: 155px; margin-bottom: 0; height: 41px;">
-								<label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0"
-									style="background-color: #ff385c; color: white;">
-									<span class="d-none d-sm-block">숙소 대표사진 수정하기</span>
-									<i class="bx bx-upload d-block d-sm-none"></i>
-									<input type="file" id="upload" class="account-file-input" hidden="" name="file"
-										accept="image/png, image/jpeg">
-								</label>
-								<button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-									<i class="bx bx-reset d-block d-sm-none"></i>
-									<span class="d-none d-sm-block">되돌리기</span>
-								</button>
-
-								<p class="text-muted mb-0"><!--Allowed JPG, GIF or PNG. Max size of 800K--></p>
-							</div>
-						</div>
-					</div>
-					<!-- 객실 사진 -->
-					<div class="d-flex align-items-start align-items-sm-center gap-4">
-						<img src="##" alt="user-avatar" class="d-block rounded" height="100"
-							width="100" id="uploadedAvatar">
-						<div class="button-wrapper">
-							<label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-								<span class="d-none d-sm-block">Upload new photo</span>
-								<i class="bx bx-upload d-block d-sm-none"></i>
-								<input type="file" id="upload" class="account-file-input" hidden=""
-									accept="image/png, image/jpeg">
-							</label>
-							<button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-								<i class="bx bx-reset d-block d-sm-none"></i>
-								<span class="d-none d-sm-block">Reset</span>
-							</button>
-
-							<p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
-						</div>
-						<img src="##" alt="user-avatar" class="d-block rounded" height="100"
-							width="100" id="uploadedAvatar">
-						<div class="button-wrapper">
-							<label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-								<span class="d-none d-sm-block">Upload new photo</span>
-								<i class="bx bx-upload d-block d-sm-none"></i>
-								<input type="file" id="upload" class="account-file-input" hidden=""
-									accept="image/png, image/jpeg">
-							</label>
-							<button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-								<i class="bx bx-reset d-block d-sm-none"></i>
-								<span class="d-none d-sm-block">Reset</span>
-							</button>
-
-							<p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
-						</div>
-					</div>
-					
-					<hr class="my-0" style="margin-top: 10px;margin-bottom: 10px;">
-					<div class="row" style="margin-top: 20px;">
-						<div class="mb-3 col-md-4">
-							<label for="firstName" class="form-label">숙소명</label>
-							<input class="form-control" type="text" id="firstName" name="lodg_name" required="required">
-						</div>
-						<div class="mb-3 col-md-4">
-							<label class="form-label" for="country">객실 이름</label>
-							<select id="country" class="select2 form-select" name="lodg_type" required="required">
-								<option selected="">숙소 형태를 지정해주세요</option>
-								<option value="모텔">모텔</option>
-								<option value="호텔리조트">호텔리조트</option>
-								<option value="펜션">펜션</option>
-								<option value="게스트하우스">게스트하우스</option>
-								<option value="캠핑글램핑">캠핑글램핑</option>
-							</select>
-						</div>
-
-						<div class="mb-3 row">
-							<div class="mb-3 col-md-12">
-								<label for="html5-text-input" class="col-md-2 col-form-label">객실 이름: </label>
-
-							</div>
-							<div class="mb-3 col-md-4">
-								<input class="form-control" type="text" id="sample6_postcode" placeholder="우편번호"
-									style="width: 100%;">
-							</div>
-
-							<div class="mb-3 col-md-4">
-								<input class="form-control" type="text" id="sample6_detailAddress" placeholder="상세주소"
-									style="width: 100%;" name="lodg_addr" required="required">
-							</div>
-						</div>
-						<div class="mb-3 col-md-6">
-							<label for="address" class="form-label">숙소 설명</label>
-							<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-								style="margin-bottom: 20px;" name="lodg_content" required="required"></textarea>
-							<!--<input type="text" class="form-control" id="address" name="lodg_content" placeholder="Address" th:value="${vo.lodg_content}">-->
-						</div>
-					</div>
-					<div class="mt-2">
-						<button type="submit" class="btn btn-primary me-2"
-							style="background-color: #ff385c; color: white;">정보수정하기</button>
-						<button type="reset" class="btn btn-outline-secondary">취소하기</button>
-					</div>
-				</form>
+				<div class="badge bg-label-danger p-3 rounded mb-3">
+					<img src="##" alt="이미지" class="lodg_img">
+				</div>
+				<h4>숙소 이름</h4>
+				<p>주소</p>
+				<hr class="my-5">
+				<div class="table-responsive text-nowrap">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>객실 이름</th>
+								<th>가격 / 박</th>
+								<th>수용 가능 인원</th>
+								<th>예약 여부</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody class="table-border-bottom-0">
+							<tr>
+								<td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular
+										Project</strong></td>
+								<td>Albert Cook</td>
+								<td>
+									<ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Lilian Fuller">
+											<img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle">
+										</li>
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Sophia Wilkerson">
+											<img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+										</li>
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Christina Parker">
+											<img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle">
+										</li>
+									</ul>
+								</td>
+								<td><span class="badge bg-label-primary me-1">Active</span></td>
+								<td>
+									<div class="dropdown">
+										<button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+											data-bs-toggle="dropdown">
+											<i class="bx bx-dots-vertical-rounded"></i>
+										</button>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="javascript:void(0);"><i
+													class="bx bx-edit-alt me-1"></i> Edit</a>
+											<a class="dropdown-item" href="javascript:void(0);"><i
+													class="bx bx-trash me-1"></i> Delete</a>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>React Project</strong>
+								</td>
+								<td>Barry Hunter</td>
+								<td>
+									<ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Lilian Fuller">
+											<img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle">
+										</li>
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Sophia Wilkerson">
+											<img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+										</li>
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Christina Parker">
+											<img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle">
+										</li>
+									</ul>
+								</td>
+								<td><span class="badge bg-label-success me-1">Completed</span></td>
+								<td>
+									<div class="dropdown">
+										<button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+											data-bs-toggle="dropdown">
+											<i class="bx bx-dots-vertical-rounded"></i>
+										</button>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="javascript:void(0);"><i
+													class="bx bx-edit-alt me-1"></i> Edit</a>
+											<a class="dropdown-item" href="javascript:void(0);"><i
+													class="bx bx-trash me-1"></i> Delete</a>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>VueJs Project</strong>
+								</td>
+								<td>Trevor Baker</td>
+								<td>
+									<ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Lilian Fuller">
+											<img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle">
+										</li>
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Sophia Wilkerson">
+											<img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+										</li>
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Christina Parker">
+											<img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle">
+										</li>
+									</ul>
+								</td>
+								<td><span class="badge bg-label-info me-1">Scheduled</span></td>
+								<td>
+									<div class="dropdown">
+										<button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+											data-bs-toggle="dropdown">
+											<i class="bx bx-dots-vertical-rounded"></i>
+										</button>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="javascript:void(0);"><i
+													class="bx bx-edit-alt me-1"></i> Edit</a>
+											<a class="dropdown-item" href="javascript:void(0);"><i
+													class="bx bx-trash me-1"></i> Delete</a>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Bootstrap
+										Project</strong>
+								</td>
+								<td>Jerry Milton</td>
+								<td>
+									<ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Lilian Fuller">
+											<img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle">
+										</li>
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Sophia Wilkerson">
+											<img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+										</li>
+										<li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+											class="avatar avatar-xs pull-up" title=""
+											data-bs-original-title="Christina Parker">
+											<img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle">
+										</li>
+									</ul>
+								</td>
+								<td><span class="badge bg-label-warning me-1">Pending</span></td>
+								<td>
+									<div class="dropdown">
+										<button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+											data-bs-toggle="dropdown">
+											<i class="bx bx-dots-vertical-rounded"></i>
+										</button>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="javascript:void(0);"><i
+													class="bx bx-edit-alt me-1"></i> Edit</a>
+											<a class="dropdown-item" href="javascript:void(0);"><i
+													class="bx bx-trash me-1"></i> Delete</a>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-			<!-- /Account -->
+		</div>
 		</div>
 	</th:block>
-	<script>
-		/*
-		
-				
-				var category01 = "";
-				category01 += '<ul class="categoryList" style="position: relative;" onclick="getCategory_List(event);" >';
-				data.forEach((item)=>{
-					category01 += '<li><a href="#" data-set='+JSON.stringify(item)+'>'+item.category_detail_nm+'</a></li>';
-				})
-				 category01 += '</ul>'; 
-				   //console.log(category01);
-				  $('.categoryListWrap').append(category01); 
-		*/
-		const count = 0;
-		$('#addimg').click(() => {
 
-			var addImgtag = "";
-			addImgtag += "<img src='../assets/img/avatars/1.png' alt='user-avatar' class='d-block rounded' height='100' width='100' id='uploadedAvatar'>"
-			addImgtag += "<div class='button-wrapper'>"
-			addImgtag += "<label for='upload' class='btn btn-primary me-2 mb-4' tabindex='0'>"
-			addImgtag += "<span class='d-none d-sm-block'>Upload new photo</span>"
-			addImgtag += "<i class='bx bx-upload d-block d-sm-none'></i>"
-			addImgtag += "<input type='file' id='upload' class='account-file-input' hidden='' accept='image/png, image/jpeg'>"
-			addImgtag += "</label>"
-			addImgtag += "<button type='button' class='btn btn-outline-secondary account-image-reset mb-4'>"
-			addImgtag += "<i class='bx bx-reset d-block d-sm-none'></i>"
-			addImgtag += "<span class='d-none d-sm-block'>Reset</span>"
-			addImgtag += "</button>"
-			addImgtag += "<p class='text-muted mb-0'>Allowed JPG, GIF or PNG. Max size of 800K</p>"
-			addImgtag += "</div>"
-			if (count % 3 == 0) {
-				addImgtag += "<br>"
-			}
-
-			$('.d-flex').append(addImgtag);
-			count++;
-			console.log(count)
-		})
-	</script>
 </body>
 
 </html>

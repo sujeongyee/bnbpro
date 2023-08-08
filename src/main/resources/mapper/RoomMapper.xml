@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.ddu.pro.service.RoomMapper">
+	<select id="getRoomList">
+		select * from room where lodg_num = #{lodg_num}
+	</select>
+	 
+	<insert id="addRoom">
+		insert into room (room_name, room_price, room_detail, room_users, lodg_num)
+		values (#{room_name},#{room_price},#{room_detail},#{room_users},#{lodg_num})
+	</insert>
+	
+	<delete id="deleteRoom">
+		delete from room where room_num = #{room_num}
+	</delete>
+	
+	<update id="modifyRoom">
+		update room set room_name = #{room_name},
+					room_price = #{room_price},
+					room_detail = #{room_detail},
+					room_users = #{room_users}
+				where room_num = #{room_num}  
+	</update>
+	
+	<select id="getLodgment">
+		select * from lodgment where lodg_num = #{lodg_num} 
+	</select>
+  </mapper>
