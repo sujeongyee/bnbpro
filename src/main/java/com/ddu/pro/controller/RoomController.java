@@ -38,7 +38,7 @@ public class RoomController {
 	@GetMapping("/List")
 	public String roomList(@RequestParam("lodg_num") int num, Model model) {
 		model.addAttribute("list", roomService.getRoomList(num));
-
+		model.addAttribute("lodg", roomService.getLodgment(num));
 		return "room/roomList";
 	}
 	
