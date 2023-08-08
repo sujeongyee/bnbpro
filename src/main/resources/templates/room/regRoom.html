@@ -18,7 +18,7 @@
 						<small class="text-muted float-end"></small>
 					</div>
 					<div class="card-body">
-						<form action="resistForm" method="post">
+						<form action="resistForm" method="post" enctype="multipart/form-data">
 							<input type="hidden" name="lodg_num" th:value="${lodg.lodg_num}">
 							<div class="mb-3">
 								<label class="form-label" for="basic-default-fullname">객실 이름</label>
@@ -48,15 +48,15 @@
 							</div>
 							<div class="mb-3">
 								<label for="formFile" class="form-label">객실 사진 등록</label>
-								<input class="form-control" type="file" id="formFile">
+								<input class="form-control" type="file" name="file" id="formFile">
 							</div>
 							<div class="mb-3">
 								<label for="formFile_a" class="form-label">객실 사진 등록</label>
-								<input class="form-control" type="file" id="formFile_a">
+								<input class="form-control" type="file" name="file" id="formFile_a">
 							</div>
 							<div class="mb-3">
 								<label for="formFile_b" class="form-label">객실 사진 등록</label>
-								<input class="form-control" type="file" id="formFile_b">
+								<input class="form-control" type="file" name="file" id="formFile_b">
 							</div>
 							<button type="submit" class="btn btn-outline-primary" style="border: 1px solid #ff385c;">Send</button>
 						</form>

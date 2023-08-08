@@ -40,8 +40,8 @@ create table reservation (
 ## 객실 4
 create table room (
 	room_num int primary key auto_increment,
-    room_name varchar(20),
-    room_price varchar(40),
+    room_name varchar(50),
+    room_price varchar(50),
     room_detail varchar(1000),
     room_users int,
     lodg_num int    

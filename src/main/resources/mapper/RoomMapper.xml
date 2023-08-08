@@ -7,6 +7,11 @@
 		select * from room where lodg_num = #{lodg_num}
 	</select>
 	 
+	 <select id="getRoomnum">
+	 	select room_num from room order by room_num desc
+	 </select>
+	 
+	 
 	<insert id="addRoom">
 		insert into room (room_name, room_price, room_detail, room_users, lodg_num)
 		values (#{room_name},#{room_price},#{room_detail},#{room_users},#{lodg_num})
@@ -27,4 +32,9 @@
 	<select id="getLodgment">
 		select * from lodgment where lodg_num = #{lodg_num} 
 	</select>
+	
+	<insert id="registRoomImg">
+		insert into room_img (ro_img_filename,ro_img_filepath,ro_img_uuid,room_num)
+			values (#{ro_img_filename},#{ro_img_filepath},#{ro_img_uuid},#{room_num})
+	</insert>
   </mapper>
