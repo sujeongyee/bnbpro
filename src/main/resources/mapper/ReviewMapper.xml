@@ -20,7 +20,7 @@
 		<![CDATA[ and rev_regdate <= #{endDate} ]]>
 		</if>
 				
-		order by rev_num desc 
+		order by rev_regdate desc 
 		limit #{pageStart}, #{amount};
 	</select>
 	
