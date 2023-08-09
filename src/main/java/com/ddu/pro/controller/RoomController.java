@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ddu.pro.command.RoomImgVO;
 import com.ddu.pro.command.RoomVO;
@@ -97,5 +98,33 @@ public class RoomController {
 	public @ResponseBody ResponseEntity<ArrayList<RoomImgVO>> getimgList(@RequestParam("room_num") int num){
 		
 		return new ResponseEntity<ArrayList<RoomImgVO>>(roomService.getimgList(num), HttpStatus.OK);
+	}
+	
+	
+	//객실 정보 수정 페이지 이동
+	@GetMapping("/modifyRoom")
+	public String modifyRoom(@RequestParam("room_num") String num,Model model) {
+		model.addAttribute("vo",roomService.getRoom(num));
+		
+		return "room/modifyRoom";
+	}
+	
+	@PostMapping("/modifyForm")
+	public String modifyForm(@RequestParam("file") List<MultipartFile> list, RoomVO vo,RedirectAttributes re) {
+		roomService.modifyRoom(vo);
+		roomService.modifyRoomImg(vo.getRoom_num(), list);
+		re.addAttribute("lodg_num",vo.getLodg_num());
+		return "redirect:/room/List";
+	}
+	
+	@GetMapping("/deleteRoom")
+	public String deleteRoom(@RequestParam("room_num") String room_num,RedirectAttributes re) {
+		RoomVO vo = roomService.getRoom(room_num);
+		
+		re.addAttribute("lodg_num",vo.getLodg_num());
+		
+		roomService.deleteRoom(Integer.parseInt(room_num));
+		
+		return "redirect:/room/List";
 	}
 }

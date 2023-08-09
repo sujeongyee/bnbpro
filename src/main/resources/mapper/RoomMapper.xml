@@ -15,6 +15,11 @@
 	 	select * from room_img where room_num = #{room_num};
 	 </select>
 	 
+	 <select id="getRoom">
+	 	select * from room where room_num = #{room_num}
+	 </select>
+	 
+	 
 	 
 	<insert id="addRoom">
 		insert into room (room_name, room_price, room_detail, room_users, lodg_num)
@@ -41,4 +46,11 @@
 		insert into room_img (ro_img_filename,ro_img_filepath,ro_img_uuid,room_num)
 			values (#{ro_img_filename},#{ro_img_filepath},#{ro_img_uuid},#{room_num})
 	</insert>
+	
+	<update id="modifyRoomImg">
+		update room_img set ro_img_filename = #{vo.ro_img_filename}
+							,ro_img_filepath= #{vo.ro_img_filepath}
+							,ro_img_uuid = #{vo.ro_img_uuid}
+					where ro_img_num = #{ro_img_num}
+	</update>
   </mapper>

@@ -1,8 +1,11 @@
 package com.ddu.pro.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ddu.pro.command.LodgmentVO;
 import com.ddu.pro.command.RoomImgVO;
@@ -33,4 +36,10 @@ public interface RoomMapper {
 	
 	// 이미지 조회
 	ArrayList<RoomImgVO> getimgList(int room_num);
+	
+	// 객실 하나 조회
+	RoomVO getRoom(String room_num);
+	
+	//이미지 수정
+	int modifyRoomImg(@Param("vo") RoomImgVO vo, @Param("ro_img_num") int ro_img_num);
 }
