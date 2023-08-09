@@ -82,6 +82,11 @@
 		a {
 			color: #ff385c;
 		}
+		
+		.form-control {
+			margin-bottom: 5px;
+		}
+		
 	</style>
 
 	<link rel="shortcut icon" type="image⁄x-icon" href="assets/img/favicon/logo4.png">
@@ -90,7 +95,13 @@
 
 <body>
 	<!-- Content -->
-
+	
+	<style>
+		.mb-3 > span {
+			margin-top: 5px;
+		}
+	</style>
+	
 	<div class="container-xxl">
 		<div class="authentication-wrapper authentication-basic container-p-y">
 			<div class="authentication-inner">
@@ -113,23 +124,33 @@
 						<h4 class="mb-2">기분 좋은 여행의 시작! 🚀</h4>
 						<p class="mb-4"><!--Make your app management easy and fun!--></p>
 
-						<form id="formAuthentication" class="mb-3" action="/join" method="post">
+						<form id="formAuthentication" name="joinForm" class="mb-3" action="/join" method="post">
 							<div class="mb-3">
 								<label for="username" class="form-label">아이디</label>
 								<input type="text" class="form-control" id="username" name="bn_id" th:value="${vo.bn_id}"
 									placeholder="아이디를 입력해주세요" autofocus />
-									<button type="button" onclick="requestIdCheckDuplicate()" class="btn btn-sm btn-primary" style="float: right; margin-top: 8px;">중복확인</button>
-									<span>[[${valid_bn_id}]]</span>
+									<button type="button" onclick="requestIdCheckDuplicate()" class="btn btn-sm btn-primary" style="float: right; margin-top: 2px;">중복확인</button>
+									<span >[[${valid_bn_id}]]</span>
 							</div>
 							<div class="mb-3 form-password-toggle">
 								<label class="form-label" for="password" >비밀번호</label>
 								<div class="input-group input-group-merge">
-									<input type="password" id="password" class="form-control" name="bn_pw" th:value="${vo.bn_pw}"
+									<input type="password" id="password" class="form-control pw1" name="bn_pw" th:value="${vo.bn_pw}"
 										placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
 										aria-describedby="password" />
-									<span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+									<span class="input-group-text cursor-pointer" style="margin-bottom: 5px;"><i class="bx bx-hide"></i></span>
 								</div>
 									<span>[[${valid_bn_pw}]]</span>
+							</div>
+							<div class="mb-3 form-password-toggle">
+								<label class="form-label" for="password" >비밀번호 확인</label>
+								<div class="input-group input-group-merge">
+									<input type="password" id="password" class="form-control pw2" th:value="${vo.bn_pw}"
+										placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+										aria-describedby="password" />
+									<span class="input-group-text cursor-pointer" style="margin-bottom: 5px;"><i class="bx bx-hide"></i></span>
+								</div>
+									<span class="here"></span>
 							</div>
 							<div class="mb-3">
 								<label for="business-name" class="form-label">이름</label>
@@ -157,7 +178,7 @@
 									<span>[[${valid_bn_phone}]]</span>
 							</div>
 							
-							<button class="btn btn-primary d-grid w-100"
+							<button class="btn btn-primary d-grid w-100 join"
 								style="padding-top: 10px;margin-top: 50px;">가입하기</button>
 						</form>
 
@@ -202,6 +223,23 @@
 	            });
 			
 		}
+		$(".pw2").blur(function(){
+			if($(".pw1").val()!=$(".pw2").val()){
+				$(".here").html('비밀번호와 비밀번호 확인이 일치하지 않습니다');
+				
+			}else{
+				$(".here").html('');}
+		})
+		$(".join").click(function(){
+			event.preventDefault();
+			if($(".pw1").val()!=$(".pw2").val()){
+				$(".here").html('비밀번호와 비밀번호 확인이 일치하지 않습니다');
+				
+			}else{
+				$(".here").html('');
+				document.joinForm.submit();
+			}
+		})
 
    </script>
 
