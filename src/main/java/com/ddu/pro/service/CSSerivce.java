@@ -10,4 +10,7 @@ public interface CSSerivce {
 	public List<LodgmentVO> getLodgName(String bn_id);
 	public List<InquiryVO> getLodgIngury(String lodg);
 	public List<InquiryVO> getAll();
+	public List<InquiryVO> getAnswer(String answer_num);
+	public void registAnswer(String answer , int num);
+	public void check (int num);
 }

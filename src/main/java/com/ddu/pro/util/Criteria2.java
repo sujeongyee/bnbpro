@@ -16,7 +16,7 @@ public class Criteria2 {
 	//기본생성자로 만들어지면 1, 10 기본값
 	public Criteria2() {
 		this.page = 1;
-		this.amount = 3;
+		this.amount = 6;
 	}
 
 	//기본생성자 아니면 값 전달 받음

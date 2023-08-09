@@ -23,6 +23,9 @@
 		   width: 50%;
 	   }
 	   
+	   .ahover:hover {
+		   font-size: 15px;
+	   }
 	   
   </style>
 </head>
@@ -81,10 +84,26 @@
     		.table {
 				--bs-table-hover-bg:#ff385c14;
 			}
+			
+		
+			 .form-control:focus {
+  				color: #697a8d;
+  				background-color: #fff;
+  				border-color: #ff385c;
+  			}
+  			
+  			.answer {
+				  text-align: left;
+			  }
+			
+			.here {
+				margin-top: 10px;
+			}
     	
 		</style>
 		
 		<div class="">
+			
 		<form name="search" action="search" method="get">
         <div class="row" style="margin-top: 15px;">
 			<th:block th:each="vo:${lodgVO}">
@@ -101,7 +120,7 @@
       </div>
       
       <th:block th:if="${list}!=null">
-		  <div class="card" style="width: 99%;">
+	<div class="card" style="width: 99%;">
   <h5 class="card-header" style="color: #ff385c;">선택한 숙소 전체 문의내용</h5>
   <div class="table-responsive text-nowrap">
     <table class="table table-hover">
@@ -121,22 +140,46 @@
           <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>[[${vo.lodg_name}]]</strong></td>
           <td>[[${vo.room_name}]]</td>
           <td>[[${vo.user_id}]]</td>
-          <td>[[${vo.ask_content}]]</td>
           <td>
-			  <th:block th:if="${vo.answer_check=='y'}">
-					  <p style="">O</p>
+		<div class="col-lg-4 col-md-3">
+        <!-- Modal -->
+       <div class="demo-inline-spacing">
+
+          <!-- Button ModalScrollable -->
+           <button type="button" class="btn btn-primary" th:value=${vo.ask_num} data-bs-toggle="modal" data-bs-target="#modalScrollable" style="padding-bottom: 17px;">
+            [[${vo.ask_content}]]
+          </button>
+          <input type="hidden" th:class="user_id" th:value="${vo.user_id}"/>
+          <input type="hidden" th:class="ask_content" th:value="${vo.ask_content}"/>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalScrollable" tabindex="-1" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content"> 
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalScrollableTitle">💌 &nbsp;&nbsp;문의 내용 & 댓글</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body answer">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">돌아가기</button>
+                <button type="button" class="btn btn-primary" style="background-color: #ff385c; color: white;">답변 남기기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+          <td>
+			       <th:block th:if="${vo.answer_check=='y'}">
+					  <p style="padding-top: 15px;">O</p>
 				  </th:block>
 				  <th:block th:unless="${vo.answer_check=='y'}">
 					  <p style="color: #ff385c;padding-top: 15px;">X</p>
 				  </th:block>
-           <!-- <div class="dropdown">
-              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
-              <div class="dropdown-menu">
-				  
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>답변하러가기</a>
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-              </div>
-            </div>-->
+          
           </td>
           <td>[[${ #temporals.format(vo.ask_regdate,'yy년MM월dd일 hh:mm:ss')}]]</td>
         </tr>
@@ -171,37 +214,63 @@
         </tr>
       </thead>
       <tbody class="table-border-bottom-0">
-		  <th:block th:each="vo,status: ${list2}" >
+		   <th:block th:each="vo2,status: ${list2}" >
         <tr>
-          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>[[${vo.lodg_name}]]</strong></td>
-          <td>[[${vo.room_name}]]</td>
-          <td>[[${vo.user_id}]]</td>
-          <td>[[${vo.ask_content}]]</td>
+          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>[[${vo2.lodg_name}]]</strong></td>
+          <td>[[${vo2.room_name}]]</td>
+          <td>[[${vo2.user_id}]]</td>
           <td>
-			  <th:block th:if="${vo.answer_check=='y'}">
-					  <p style="">O</p>
+		<div class="col-lg-4 col-md-3">
+        <!-- Modal -->
+       <div class="demo-inline-spacing">
+
+          <!-- Button ModalScrollable -->
+          <button type="button" class="btn btn-primary" th:value=${vo2.ask_num} data-bs-toggle="modal" data-bs-target="#modalScrollable" style="padding-bottom: 17px;">
+            [[${vo2.ask_content}]]
+          </button>
+          <input type="hidden" th:class="user_id"  th:value="${vo2.user_id}"/>
+          <input type="hidden" th:class="ask_content" th:value="${vo2.ask_content}"/>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalScrollable" tabindex="-1" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content"> 
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalScrollableTitle">💌 &nbsp;&nbsp;문의 내용 & 댓글</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body answer">
+      			 
+              </div>
+              <div class="modal-footer">
+               
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+          <td>
+			       <th:block th:if="${vo2.answer_check=='y'}">
+					  <p style="padding-top: 15px;">O</p>
 				  </th:block>
-				  <th:block th:unless="${vo.answer_check=='y'}">
+				  <th:block th:unless="${vo2.answer_check=='y'}">
 					  <p style="color: #ff385c;padding-top: 15px;">X</p>
 				  </th:block>
-           <!-- <div class="dropdown">
-              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
-              <div class="dropdown-menu">
-				  
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>답변하러가기</a>
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-              </div>
-            </div>-->
+          
           </td>
-          <td>[[${ #temporals.format(vo.ask_regdate,'yy년MM월dd일 hh:mm:ss')}]]</td>
+          <td>[[${ #temporals.format(vo2.ask_regdate,'yy년MM월dd일 hh:mm:ss')}]]</td>
         </tr>
         </th:block>
       </tbody>
     </table>
   </div>
 </div>
-
-		
+	  </th:block>
+      
+      
+				
             </div>
             <!--객실끗-->
           </div>
@@ -212,16 +281,77 @@
 		
   	</th:block>
   	
-  	<script>
-		  $("#selectBtn").click(function(){
-			  event.preventDefault();
-			  if($("input[name=lodg]:checked").length == 0){
-				  alert('1개 이상의 선택은 필수입니다.')
-			  }else{
-				  document.search.submit();
-			  }
+  	<script th:inline="javascript">
+		   $("#selectBtn").click(function(){
+           event.preventDefault();
+           if($("input[name=lodg]:checked").length == 0){
+              alert('1개 이상의 선택은 필수입니다.')
+           }else{
+              document.search.submit();
+           }
+           
+        })
+         
+		  
+		  
+		$(".btn-primary").click(function(e){
+			var pk = $(e.target).attr("value");
+			console.log(pk)
+			$.ajax({
+				url:'getData',
+				type:'post',
+				contentType:"application/json",
+				data:JSON.stringify({ask_num:pk}),
+				success:function(data){
+					var str =""; 
+					
+					if(data.length==0){
+						
+						var user_id = $(e.currentTarget).next().attr("value");
+						var ask_content = $(e.currentTarget).next().next().attr("value");
+						str+='<div class="here"><h5>'+user_id+'님의 문의 내용 : '+ask_content+'</h5></div>';
+                        str+='<hr class="my-5">';
+                        str+='<div class="answer-zone">'
+                        str+='<h4>아직 등록된 관리자 답변이 없습니다.</h4>'
+                        str+='<input type="hidden" name= "ask_num">'
+                        str+='<input type="text"  class="form-control" id="answer_content" name= "answer_contnet">'
+                        str+='</div>'
+                        $(".answer").html(str);
+                        $(".modal-footer").html('<input type="hidden" value='+pk+'> <button type="button" class="btn btn-primary" id="reqist-answer" onclick="regist()" style="background-color: #ff385c; color: white;">답변 남기기</button> <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">돌아가기</button>');
+
+					}else{
+					
+						str+='<div class="here"><h5>' + data[0].user_id+'님의 문의 내용 : '+ data[0].ask_content+'</h5></div>';
+						str+='<hr class="my-5">';
+						str+='<div><h4>'+data[0].answer_content+'</h4></div>';
+												
+						$(".answer").html(str);
+						$(".modal-footer").html(' <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">돌아가기</button>');
+					}
+									
+				},
+				error:function(status,error){}
+			})
+			
+		})
+		
+		  function regist(){
+			  var num = $(event.target).prev().attr("value");
+			  var answer = $("#answer_content").val();
 			  
-		  })
+			  $.ajax({
+				  url:'registData',
+				  type:'post',
+				  contentType:'application/json',
+				  data:JSON.stringify({ask_num:num,answer_content:answer}),
+				  success:function(data){
+					  console.log('herehere'+data);
+					  $(".answer-zone").html('<h4>'+data+'</h4>');
+				  },
+			  })
+			  
+			  
+		  }
 			
 			
 		
