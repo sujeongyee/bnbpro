@@ -29,4 +29,13 @@ public interface RoomService {
 	
 	//객실 이미지 조회
 	ArrayList<RoomImgVO> getimgList(int room_num);
+	
+	//객실 하나 조회
+	RoomVO getRoom(String room_num);
+	
+	
+	//객실 이미지 수정
+	int modifyRoomImg(int roomnum, List<MultipartFile> list);
+	
+	
 }

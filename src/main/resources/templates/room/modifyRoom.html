@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<th:block th:replace="~{./include/layout::setContent(~{::.card})}">
+		<div class="card">
+			<hr class="my-5">
+			<div class="card-body">
+				<hr class="my-5">
+				<div class="card mb-4">
+					<div class="card-header d-flex justify-content-between align-items-center">
+						<h5 class="mb-0">객실 수정</h5>
+						<small class="text-muted float-end"></small>
+					</div>
+					<div class="card-body">
+						<form action="modifyForm" method="post" enctype="multipart/form-data">
+							<input type="hidden" name="room_num" th:value="${vo.room_num}">
+							<input type="hidden" name="lodg_num" th:value="${vo.lodg_num}">
+							<div class="mb-3">
+								<label class="form-label" for="basic-default-fullname">객실 이름</label>
+								<input type="text" name="room_name" th:value="${vo.room_name}" class="form-control" id="basic-default-fullname"
+									placeholder="ex) 사랑채, 특채 1실, 별채 2실 등">
+							</div>
+							<div class="mb-3">
+								<label class="form-label" for="basic-default-company">객실 가격 / 박</label>
+								<input type="text" name="room_price" th:value="${vo.room_price}" class="form-control" id="basic-default-company"
+									placeholder="1박 당 가격을 작성해주세요">
+							</div>
+							<div class="mb-3">
+								<label class="form-label" for="basic-default-email">최대 수용인원</label>
+								<div class="input-group input-group-merge">
+									<input type="text" th:value="${vo.room_users}" name="room_users" id="basic-default-email" class="form-control"
+										placeholder="최대 수용 가능한 인원을 작성해주세요" 
+										>
+									
+								</div>
+								
+							</div>
+							
+							<div class="mb-3">
+								<label class="form-label" for="basic-default-message">객실 설명</label>
+								<textarea id="basic-default-message" name="room_detail" class="form-control"
+									placeholder="ex) 화장실 1개, 에어컨 O, 드라이기 O, 와이파이, 냉장고, TV 등등">[[${vo.room_detail}]]</textarea>
+							</div>
+							<div class="mb-3">
+								<label for="formFile" class="form-label">객실 사진 등록</label>
+								<input class="form-control" type="file" name="file" id="formFile">
+							</div>
+							<div class="mb-3">
+								<label for="formFile_a" class="form-label">객실 사진 등록</label>
+								<input class="form-control" type="file" name="file" id="formFile_a">
+							</div>
+							<div class="mb-3">
+								<label for="formFile_b" class="form-label">객실 사진 등록</label>
+								<input class="form-control" type="file" name="file" id="formFile_b">
+							</div>
+							<button type="submit" class="btn btn-outline-primary" style="border: 1px solid #ff385c;">Send</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</th:block>
+
+</body>
+
+</html>

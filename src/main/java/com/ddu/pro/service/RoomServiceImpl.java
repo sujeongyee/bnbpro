@@ -103,4 +103,43 @@ public class RoomServiceImpl implements RoomService {
 		return roomMapper.getimgList(room_num);
 	}
 
+	@Override
+	public RoomVO getRoom(String room_num) {
+		return roomMapper.getRoom(room_num);
+	}
+
+	@Override
+	public int modifyRoomImg(int roomnum, List<MultipartFile> list) {
+		
+		ArrayList<RoomImgVO> imglist = roomMapper.getimgList(roomnum);
+		
+		int idx = 0;
+		list = list.stream().filter(p->p.isEmpty()==false).collect(Collectors.toList());
+		for (MultipartFile file : list) {
+
+			String originName = file.getOriginalFilename(); // 파일이름
+
+			String filename = originName.substring(originName.lastIndexOf("\\") + 1); // \\ 기준으로 파일명만 잘라서 저장
+
+			String uuid = UUID.randomUUID().toString(); // 난수 이름
+
+			String filepath = makeFolder(); // 폴더생성
+
+			String savepath = uploadPath + "/" + filepath + "/" + uuid + "_" + filename; // 저장 경로
+
+			try {
+				File saveFile = new File(savepath);
+				file.transferTo(saveFile); // 파일 업로드를 진행
+			} catch (Exception e) {
+				System.out.println("파일업로드 중 error 발생");
+				e.printStackTrace();
+				return 0; // 실패의 의미
+			}
+			roomMapper.modifyRoomImg(RoomImgVO.builder().ro_img_filename(filename).ro_img_filepath(filepath)
+					.ro_img_uuid(uuid).build(),imglist.get(idx).getRo_img_num());
+			idx++;
+		}
+		return 1;
+	}
+
 }
