@@ -23,5 +23,10 @@
   	<update id="check">
   		update userservice set answer_check='y' where ask_num = #{num}
   	</update>
+  	
+  	<insert id="regist">
+  		insert into userservice (ask_content, answer_check, user_id , room_num) values 
+  		(#{ask_content},#{answer_check},#{user_id},#{room_num})
+  	</insert>
   
   </mapper>

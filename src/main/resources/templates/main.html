@@ -152,7 +152,18 @@
 			width: 162.5px;
 			margin-left: 5px;
 		}
+		
+		.page-item.active .page-link {
+		    z-index: 3;
+		    color: #4b4b4b;
+		    background-color: rgb(255 105 105 / 13%);
+		    }
+		    .page-link:hover {
+				 background-color: rgb(255 105 105 / 13%);
+			}
 	  </style>
+     
+     
       <th:block th:each="vo:${list}">
 		  
 		  <div class="col-md-4 mb-4">			  

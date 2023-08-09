@@ -134,19 +134,25 @@
           <th>등록일</th>
         </tr>
       </thead>
+      <style>
+		  .tab-pane {
+			  width: 100%;
+		  }
+	  </style>
+      
       <tbody class="table-border-bottom-0">
 		  <th:block th:each="vo ,status: ${list}" >
         <tr>
           <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>[[${vo.lodg_name}]]</strong></td>
           <td>[[${vo.room_name}]]</td>
           <td>[[${vo.user_id}]]</td>
-          <td>
+          <td class="model">
 		<div class="col-lg-4 col-md-3">
         <!-- Modal -->
        <div class="demo-inline-spacing">
 
           <!-- Button ModalScrollable -->
-           <button type="button" class="btn btn-primary" th:value=${vo.ask_num} data-bs-toggle="modal" data-bs-target="#modalScrollable" style="padding-bottom: 17px;">
+           <button type="button" class="btn btn-primary" th:value=${vo.ask_num} data-bs-toggle="modal" data-bs-target="#modalScrollable" style="padding-bottom: 17px;width: 20%;">
             [[${vo.ask_content}]]
           </button>
           <input type="hidden" th:class="user_id" th:value="${vo.user_id}"/>
@@ -164,20 +170,19 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">돌아가기</button>
-                <button type="button" class="btn btn-primary" style="background-color: #ff385c; color: white;">답변 남기기</button>
+                
               </div>
             </div>
           </div>
         </div>
         
       </div>
-          <td>
+          <td th:classappend="${vo.ask_num}">
 			       <th:block th:if="${vo.answer_check=='y'}">
-					  <p style="padding-top: 15px;">O</p>
+					  <p style="padding-top: 15px;" class="ptag">O</p>
 				  </th:block>
 				  <th:block th:unless="${vo.answer_check=='y'}">
-					  <p style="color: #ff385c;padding-top: 15px;">X</p>
+					  <p style="color: #ff385c;padding-top: 15px;" class="ptag">X</p>
 				  </th:block>
           
           </td>
@@ -219,7 +224,7 @@
           <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>[[${vo2.lodg_name}]]</strong></td>
           <td>[[${vo2.room_name}]]</td>
           <td>[[${vo2.user_id}]]</td>
-          <td>
+          <td class = "model">
 		<div class="col-lg-4 col-md-3">
         <!-- Modal -->
        <div class="demo-inline-spacing">
@@ -251,12 +256,12 @@
         </div>
         
       </div>
-          <td>
+          <td th:classappend="${vo2.ask_num}">
 			       <th:block th:if="${vo2.answer_check=='y'}">
-					  <p style="padding-top: 15px;">O</p>
+					  <p style="padding-top: 15px;" class="ptag">O</p>
 				  </th:block>
 				  <th:block th:unless="${vo2.answer_check=='y'}">
-					  <p style="color: #ff385c;padding-top: 15px;">X</p>
+					  <p style="color: #ff385c;padding-top: 15px;" class="ptag">X</p>
 				  </th:block>
           
           </td>
@@ -338,18 +343,21 @@
 		  function regist(){
 			  var num = $(event.target).prev().attr("value");
 			  var answer = $("#answer_content").val();
-			  
-			  $.ajax({
+
+			  $("."+num).html('<p style="padding-top: 15px;" class="ptag">O</p>');
+			   
+			   $.ajax({
 				  url:'registData',
 				  type:'post',
 				  contentType:'application/json',
 				  data:JSON.stringify({ask_num:num,answer_content:answer}),
 				  success:function(data){
-					  console.log('herehere'+data);
 					  $(".answer-zone").html('<h4>'+data+'</h4>');
+					  
+					  $(".modal-footer").html(' <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">돌아가기</button>');
+					 
 				  },
 			  })
-			  
 			  
 		  }
 			
@@ -357,6 +365,12 @@
 		
 		  
 	</script>  
+	
+	<!--
+		
+		
+		
+	-->
 
 </body>
 </html>
