@@ -11,5 +11,17 @@
   	<select id="getAll">
   	 select * from room r left join lodgment l on r.lodg_num = l.lodg_num left join userservice u on r.room_num = u.room_num where u.ask_content is not null
   	</select>
+  	
+  	<select id = "getAnswer">
+  	select * from serviceanswer s left join userservice u on s.ask_num = u.ask_num where s.ask_num = #{ask_num}
+  	</select>
+  	
+  	<insert id = "registAnswer">
+  		insert into serviceanswer (answer_content,ask_num) values (#{answer},#{num})
+  	</insert>
+  	
+  	<update id="check">
+  		update userservice set answer_check='y' where ask_num = #{num}
+  	</update>
   
   </mapper>

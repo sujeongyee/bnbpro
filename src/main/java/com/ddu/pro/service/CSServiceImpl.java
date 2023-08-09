@@ -32,4 +32,24 @@ public class CSServiceImpl implements CSSerivce{
 		return csMapper.getAll();
 	}
 
+	@Override
+	public List<InquiryVO> getAnswer(String answer_num) {
+
+		return csMapper.getAnswer(answer_num);
+	}
+
+	@Override
+	public void registAnswer(String answer, int num) {
+		
+		csMapper.registAnswer(answer, num);
+	}
+
+	@Override
+	public void check(int num) {
+		csMapper.check(num);
+		
+	}
+	
+	
+
 }

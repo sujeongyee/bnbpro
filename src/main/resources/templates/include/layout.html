@@ -177,7 +177,7 @@
 
 								</span>
 								<!--<span class="app-brand-text demo menu-text fw-bold">AIRBNB</span>-->
-								<a href="#" class="logo_">AIRBNB</a>
+								<a th:href="@{/main}" class="logo_">AIRBNB</a>
 							</a>
 						</div>
 
@@ -226,9 +226,9 @@
 									</li>
 
 									<li class="nav-item">
-										<a href="#" target="_blank" class="nav-link"
-											style="color: black;font-weight: bold;font-size: 16px;"><!--<i class="tf-icons bx bx-gift"></i>-->
-											admin님 반갑습니다</a>
+										<p class="nav-link"
+											style="color: black;font-weight: bold;font-size: 16px;margin-bottom: 0;"><!--<i class="tf-icons bx bx-gift"></i>-->
+											admin님 반갑습니다</p>
 									</li>
 
 								</ul>
@@ -270,7 +270,7 @@
 						<!-- Links -->
 						<ul class="menu-inner py-1 ps ps--active-y">
 							<li class="menu-header small fw-medium">Getting Started</li>
-							<li class="menu-item" style="margin-top: 10px;">
+							<li class="menu-item" style="margin-top: 22px;">
 								<a href="/main" class="menu-link">
 									<div>숙소리스트</div>
 								</a>
@@ -301,7 +301,7 @@
 								</ul>
 							</li>
 							<li class="menu-item">
-								<a href="quick-start.html" class="menu-link">
+								<a href="/inquiry/cs" class="menu-link">
 									<div>문의관리</div>
 									<span class="badge badge-demo bg-label-primary ms-auto"></span>
 
@@ -331,228 +331,24 @@
 					<div class="content-wrapper">
 
 						<!-- Content -->
+						
+						<style>
+							body {
+    						background-color: rgb(250, 250, 250);
+							}
+							.layout-navbar {
+  
+    							padding-top: 0.25rem;
+    							padding-bottom: 0.2rem;
+    							height: 5rem;
+    						}
+							
+						</style>
+						
 
 						<div class="container-xxl flex-grow-1 container-p-y" th:replace="${content}">
 
 						</div>
-
-						<!--<div class="container-xxl flex-grow-1 container-p-y">
-
-
-
-							<div class="row flex-xl-nowrap">
-								<div class="DocSearch-content col-12 container-p-y">
-									<h2 class="mb-4 doc-page-title">Rapidly build stunning Web Apps with Sneat 🚀</h2>
-									<p class="lead">Developer friendly, Highly customizable &amp; Carefully crafted HTML
-										Admin Dashboard Template.</p>
-
-									<hr class="my-5">
-
-									<div class="row">
-										<div class="col-md-4 mb-4">
-											<div class="card">
-												<div class="card-body">
-													<div class="badge bg-label-danger p-3 rounded mb-3">
-														<i class="bx bx-rocket fs-3"></i>
-													</div>
-													<h4>Quick Start</h4>
-													<p>Jump-start your development using this amazing theme. Use HTML
-														snippet to quickly start and easily setup Theming, Styling and
-														RTL support.
-													</p>
-													<p class="fw-bold mb-0"><a class="stretched-link"
-															href="quick-start.html">Start now <i
-																class="bx bx-chevron-right"></i></a></p>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 mb-4">
-											<div class="card">
-												<div class="card-body">
-													<div class="badge bg-label-warning p-3 rounded mb-3">
-														<i class="bx bx-slider-alt fs-3"></i>
-													</div>
-													<h4>Customize Easily 🤩 <span
-															class="badge badge-demo bg-label-primary">PRO</span></h4>
-													<p>Customize Sneat super easily using TemplateCustomizer settings in
-														<code>config.js</code> file <strong>without</strong> touching
-														single line of code 🤘.
-													</p>
-													<p class="fw-bold mb-0"><a class="stretched-link"
-															href="config.html">Configure it <i
-																class="bx bx-chevron-right"></i></a></p>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 mb-4">
-											<div class="card">
-												<div class="card-body">
-													<div class="badge bg-label-success p-3 rounded mb-3">
-														<i class="bx bx-cog fs-3"></i>
-													</div>
-													<h4>TemplateCustomizer <span
-															class="badge badge-demo bg-label-primary">PRO</span></h4>
-													<p>TemplateCustomizer plugin allows you and your customers to
-														customize template themes, layout options and <strong>look &amp;
-															feel</strong> in real time.</p>
-													<p class="fw-bold mb-0"><a class="stretched-link"
-															href="template-customizer.html">Read more <i
-																class="bx bx-chevron-right"></i></a></p>
-												</div>
-											</div>
-										</div>
-
-										<div class="col-md-4 mb-4">
-											<div class="card">
-												<div class="card-body">
-													<div class="badge badge-demo bg-label-primary p-3 rounded mb-3">
-														<i class="bx bx-layout fs-3"></i>
-													</div>
-													<h4>Layout generator</h4>
-													<p>Sneat provides online tool to generate your preferred layout
-														easily. For better experience, open generator in new tab.</p>
-													<p class="fw-bold mb-0"><a class="stretched-link"
-															href="https://tools.themeselection.com/generator/sneat/html"
-															target="_blank">Generate now <i
-																class="bx bx-chevron-right"></i></a></p>
-												</div>
-											</div>
-										</div>
-
-
-										<div class="col-md-4 mb-4">
-											<div class="card">
-												<div class="card-body">
-													<div class="badge bg-label-secondary p-3 rounded mb-3">
-														<i class="bx bx-layer fs-3"></i>
-													</div>
-													<h4>Extended Utility Classes</h4>
-													<p>Build whatever you want without writing a single line of CSS/SASS
-														code by just using our <strong>low-level extended</strong>
-														utility classes.</p>
-													<p class="fw-bold mb-0"><a class="stretched-link"
-															href="utilities.html">Read more <i
-																class="bx bx-chevron-right"></i></a></p>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 mb-4">
-											<div class="card">
-												<div class="card-body">
-													<div class="badge bg-label-info p-3 rounded mb-3">
-														<i class="bx bx-code-curly fs-3"></i>
-													</div>
-													<h4>Useful Helper Methods <span
-															class="badge badge-demo bg-label-primary">PRO</span></h4>
-													<p>Useful JavaScript helpers methods to customize Sneat easily. It
-														provides ready to use <strong>layout &amp; customizer</strong>
-														helper methods.</p>
-													<p class="fw-bold mb-0"><a class="stretched-link"
-															href="customization-js.html#js-methods">Read more <i
-																class="bx bx-chevron-right"></i></a></p>
-												</div>
-											</div>
-										</div>
-
-										<div class="col-md-4 mb-4">
-											<div class="card">
-												<div class="card-body">
-													<div class="badge bg-label-danger p-3 rounded mb-3">
-														<i class="bx bx-extension fs-3"></i>
-													</div>
-													<h4>3rd Party Plugins <span
-															class="badge badge-demo bg-label-primary">PRO</span></h4>
-													<p>All the popular 3rd party plugins are deeply customized in order
-														to perfectly meet our design system. You can easily
-														<strong>add/remove</strong> third-party plugins.
-													</p>
-													<p class="fw-bold mb-0"><a class="stretched-link"
-															href="customization-third-party-plugins.html">Read more <i
-																class="bx bx-chevron-right"></i></a></p>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 mb-4">
-											<div class="card">
-												<div class="card-body">
-													<div class="badge bg-label-warning p-3 rounded mb-3">
-														<i class="bx bx-git-repo-forked fs-3"></i>
-													</div>
-													<h4>Repository Access <span
-															class="badge badge-demo bg-label-primary ">PRO</span></h4>
-													<p>Get the private repository access to track the premium version
-														development easily. <strong>Fork</strong> the repository to get
-														the seamless updates.</p>
-													<p class="fw-bold mb-0"><a class="stretched-link"
-															href="https://tools.themeselection.com/github/github-access"
-															target="_blank">Get Access <i
-																class="bx bx-chevron-right"></i></a></p>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 mb-4">
-											<div class="card">
-												<div class="card-body">
-													<div class="badge bg-label-success p-3 rounded mb-3">
-														<i class="bx bx-support fs-3"></i>
-													</div>
-													<h4>Premium Support <span
-															class="badge badge-demo bg-label-primary">PRO</span></h4>
-													<p>Experience premium customer support from the <strong>real
-															people</strong> who have crafted this theme. Premium support
-														is limited to pro version only.</p>
-													<p class="fw-bold mb-0"><a class="stretched-link"
-															href="https://themeselection.com/support/"
-															target="_blank">Get support <i
-																class="bx bx-chevron-right"></i></a></p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-							</div>
-
-						</div>-->
-						<!-- / Content -->
-
-
-						<!--<footer class="content-footer footer">
-							<div
-								class="container-fluid d-flex flex-wrap justify-content-between align-items-center text-center py-3">
-								<div>
-									© 2023-
-									<script>
-										 document.write('0'+(new Date().getMonth()+1))
-										 document.write('0'+(new Date().getDay())
-									</script>
-
-									<a href="https://themeselection.com" class="footer-text fw-medium"
-										target="_blank">ThemeSelection</a>, Hand-crafted
-									&amp; Made with ❤️
-
-								</div>
-								<div>
-
-									<a href="https://www.facebook.com/ThemeSelections/" class="footer-link me-3"
-										target="_blank"><i class="tf-icons bx bxl-facebook"></i></a>
-
-									<a href="https://twitter.com/Theme_Selection" class="footer-link me-3"
-										target="_blank"><i class="tf-icons bx bxl-twitter"></i></a>
-
-									<a href="https://github.com/themeselection" class="footer-link me-3"
-										target="_blank"><i class="tf-icons bx bxl-github"></i></a>
-
-									<a href="https://dribbble.com/themeselection" class="footer-link me-3"
-										target="_blank"><i class="tf-icons bx bxl-dribbble"></i></a>
-
-									<a href="https://www.instagram.com/themeselection/" class="footer-link me-3"
-										target="_blank"><i class="tf-icons bx bxl-instagram"></i></a>
-
-								</div>
-							</div>
-						</footer>-->
 
 
 					</div>
