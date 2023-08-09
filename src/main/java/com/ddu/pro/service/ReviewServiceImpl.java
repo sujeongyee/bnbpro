@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ddu.pro.command.ReviewImgVO;
 import com.ddu.pro.command.ReviewVO;
+import com.ddu.pro.util.Criteria3;
 
 @Service("reviewService")
 public class ReviewServiceImpl implements ReviewService{
@@ -15,8 +16,13 @@ public class ReviewServiceImpl implements ReviewService{
 	private ReviewMapper reviewMapper;
 
 	@Override
-	public ArrayList<ReviewVO> getList() {
-		return reviewMapper.getList();
+	public ArrayList<ReviewVO> getList(Criteria3 cri) {
+		return reviewMapper.getList(cri);
+	}
+
+	@Override
+	public int getTotal(Criteria3 cri) {
+		return reviewMapper.getTotal(cri);
 	}
 
 	@Override
@@ -25,8 +31,9 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public ArrayList<ReviewImgVO> getImg(String user_id) {
-		return reviewMapper.getImg(user_id);
+	public ArrayList<ReviewImgVO> getImg(int rev_num) {
+		return reviewMapper.getImg(rev_num);
 	}
+
 
 }

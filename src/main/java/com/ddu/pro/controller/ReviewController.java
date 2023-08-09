@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ddu.pro.command.ReviewImgVO;
 import com.ddu.pro.command.ReviewVO;
 import com.ddu.pro.service.ReviewService;
+import com.ddu.pro.util.Criteria3;
+import com.ddu.pro.util.PageVO3;
 
 @Controller
 @RequestMapping("/review")
@@ -33,24 +35,31 @@ public class ReviewController {
 	private String uploadPath;
 	
 	@GetMapping("/reviewList")
-	public String reviewList(Model model) {
+	public String reviewList(Model model, Criteria3 cri) {
 		
-		ArrayList<ReviewVO> list = reviewService.getList();
+		ArrayList<ReviewVO> list = reviewService.getList(cri);
 		System.out.println(list);
+		
+		int total = reviewService.getTotal(cri);
+		PageVO3 pageVO = new PageVO3(cri, total);
+		
 		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
+		
+		System.out.println(pageVO.toString());
 		
 		return "review/reviewList";
 	}
 	
 	
 	@GetMapping("/reviewDetail")
-	public String detail(@RequestParam("rev_num") int rev_num, Model model,
-						 @RequestParam("user_id") String user_id) {
+	public String detail(@RequestParam("rev_num") int rev_num, Model model
+						 ) {
 		
 		ReviewVO vo = reviewService.getDetail(rev_num);
 		model.addAttribute("vo", vo);
 		
-		ArrayList<ReviewImgVO> list = reviewService.getImg(user_id);
+		ArrayList<ReviewImgVO> list = reviewService.getImg(rev_num);
 		model.addAttribute("list", list);
 		
 		return "review/reviewDetail";

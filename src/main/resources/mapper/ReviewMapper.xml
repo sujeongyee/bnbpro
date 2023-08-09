@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ddu.pro.service.ReviewMapper">
+
+	<select id="getList" resultType="ReviewVO">
+		select * from review 
+		where room_num > 0
+		<if test="searchRoom_num != '' and searchRoom_num != null ">
+		and room_num like concat('%', #{searchRoom_num}, '%')
+		</if>
+		<if test="searchUser_id != '' and searchUser_id != null ">
+		and user_id like concat('%',#{searchUser_id},'%')
+		</if>
+		<if test="startDate != '' and startDate != null ">
+		<![CDATA[ and rev_regdate >= #{startDate} ]]>
+		</if>
+		<if test="endDate != '' and endDate != null ">
+		<![CDATA[ and rev_regdate <= #{endDate} ]]>
+		</if>
+				
+		order by rev_num desc 
+		limit #{pageStart}, #{amount};
+	</select>
+	
+	<select id="getDetail" resultType="ReviewVO">
+		select * from review where rev_num = #{rev_num}	
+
+	</select>
+	
+	<select id="getImg" resultType="ReviewImgVO">
+		select * from rev_img where rev_num = #{rev_num}
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		select count(*) as total from review
+		where room_num > 0	
+		<if test="searchRoom_num != '' and searchRoom_num != null ">
+		and room_num like concat('%', #{searchRoom_num}, '%')
+		</if>
+		<if test="searchUser_id != '' and searchUser_id != null ">
+		and user_id like concat('%',#{searchUser_id},'%')
+		</if>
+		<if test="startDate != '' and startDate != null ">
+		<![CDATA[ and rev_regdate >= #{startDate} ]]>
+		</if>
+		<if test="endDate != '' and endDate != null ">
+		<![CDATA[ and rev_regdate <= #{endDate} ]]>
+		</if>
+	</select>
+	
+
+</mapper>
