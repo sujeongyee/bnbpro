@@ -8,7 +8,7 @@
 		select * from review 
 		where room_num > 0
 		<if test="searchRoom_num != '' and searchRoom_num != null ">
-		and room_num like concat('%', #{searchRoom_num}, '%')
+		and room_num = #{searchRoom_num}
 		</if>
 		<if test="searchUser_id != '' and searchUser_id != null ">
 		and user_id like concat('%',#{searchUser_id},'%')
