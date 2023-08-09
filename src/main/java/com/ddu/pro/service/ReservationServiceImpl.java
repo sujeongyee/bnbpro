@@ -46,4 +46,9 @@ public class ReservationServiceImpl implements ReservationService{
 		return reservationMapper.getReservAll(bn_id);
 	}
 
+	@Override
+	public ArrayList<ReservationVO> getRoomnum(int lodg_num) {
+		return reservationMapper.getRoomnum(lodg_num);
+	}
+
 }

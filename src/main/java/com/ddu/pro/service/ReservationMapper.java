@@ -15,4 +15,5 @@ public interface ReservationMapper {
 	int updateReserv(ReservationVO vo);
 	int deleteReserv(int res_num);
 	int getTotal(@Param("bn_id") String bn_id, @Param("cri") Criteria cri);
+	ArrayList<ReservationVO> getRoomnum(int lodg_num);
 }
