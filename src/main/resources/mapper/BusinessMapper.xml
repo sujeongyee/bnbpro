@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.ddu.pro.service.BusinessMapper">
+	<insert id="insertBusiness" parameterType="BusinessVO">
+        INSERT INTO business (bn_id, bn_pw, bn_name, bn_title, bn_num, bn_phone)
+        VALUES (#{bn_id}, #{bn_pw}, #{bn_name}, #{bn_title}, #{bn_num}, #{bn_phone})
+    </insert>
+    
+    <select id="getBusinessById" resultType="BusinessVO" parameterType="String">
+        SELECT * FROM business WHERE bn_id = #{bn_id}
+    </select>
+    
+    <select id="checkDuplicateBusinessId" resultType="int" parameterType="String">
+        SELECT COUNT(*) FROM business WHERE bn_id = #{bn_id}
+    </select>
+  </mapper>
