@@ -66,7 +66,7 @@
 	                      <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>[[${ #temporals.format(vo.rev_regdate, 'yy년MM월dd일')}]]</strong></td>
 	                      <td>[[${vo.room_num}]]</td>
 	                      <td>
-							  <a th:href="@{reviewDetail(rev_num=${vo.rev_num},user_id=${vo.user_id})}">
+							  <a style="width:500px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block;"  th:href="@{reviewDetail(rev_num=${vo.rev_num},user_id=${vo.user_id})}">
 								  [[${vo.rev_content}]]
 							  </a>
 						  </td>
