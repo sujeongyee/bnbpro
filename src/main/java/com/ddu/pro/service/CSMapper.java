@@ -12,7 +12,7 @@ import com.ddu.pro.command.LodgmentVO;
 public interface CSMapper {
 	public List<LodgmentVO> getLodgName(String bn_id);
 	public List<InquiryVO> getLodgIngury(String lodg);
-	public List<InquiryVO> getAll();
+	public List<InquiryVO> getAll(String bn_id);
 	public List<InquiryVO> getAnswer(String answer_num);
 	public void registAnswer(@Param("answer") String answer , @Param("num") int num);
 	public void check (int num);

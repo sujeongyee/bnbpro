@@ -3,6 +3,7 @@ package com.ddu.pro.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class LodgController {
 	}
 	// 숙소 등록하기 기능
 	@PostMapping("/lodgregist")
-	public String lodgregist(@Valid @ModelAttribute("vo") LodgmentVO vo , Errors err, @RequestParam("file") List<MultipartFile> list, RedirectAttributes ra,Model model) {
+	public String lodgregist(@Valid @ModelAttribute("vo") LodgmentVO vo ,HttpSession session ,Errors err, @RequestParam("file") List<MultipartFile> list, RedirectAttributes ra,Model model) {
 
 		if(err.hasErrors()) {
 			List<FieldError> errList = err.getFieldErrors();
@@ -60,9 +61,10 @@ public class LodgController {
 				return "redirect:/lodgment/regist"; // 이미지가 아니라면 list목록으로
 			}
 		}
+		vo.setBn_id(session.getAttribute("userid").toString());
 		
 		lodgmentSerivce.lodgmentRegist(vo, list);
-		ra.addFlashAttribute("msg", "등록이 완료 됐습니다!");
+		ra.addFlashAttribute("msg", "숙소 등록이 완료 됐습니다!");
 		return "redirect:/main";
 	}
 	
@@ -72,6 +74,7 @@ public class LodgController {
 
 		LodgmentVO vo = lodgmentSerivce.getLodgment(lodg_num);
 		model.addAttribute("vo", vo);
+		
 		return "lodgment/updatelodg";
 	}
 	
@@ -90,7 +93,7 @@ public class LodgController {
 	
 	@PostMapping("/updatelodg")
 	public String updatelodg(LodgmentVO vo,@RequestParam("file") List<MultipartFile> list,
-							 @RequestParam("lodg_num") String lodg_num) {
+							 @RequestParam("lodg_num") String lodg_num , RedirectAttributes ra) {
 		
 		System.out.println("---------------------");
 		list = list.stream().filter(p->p.isEmpty()==false).collect(Collectors.toList());
@@ -101,7 +104,7 @@ public class LodgController {
 		}
 		
 		lodgmentSerivce.updateLodg(lodg_num, list, vo);
-		
+		ra.addFlashAttribute("msg", "수정이 완료 됐습니다!");
 		return "redirect:/main";
 	}
 	

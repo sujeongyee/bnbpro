@@ -50,8 +50,14 @@
 
 <div class="row flex-xl-nowrap">
   <div class="DocSearch-content col-12 container-p-y">
-    <h2 class="mb-4 doc-page-title">고객님의 등록된 숙소 리스트입니다</h2>
-   <p class="lead">The start of a pleasant journey! its thanks to you</p>
+	  <th:block th:if="${list}!=null">
+		  <h2 class="mb-4 doc-page-title">고객님의 등록된 숙소 리스트입니다</h2>
+   		   <p class="lead">The start of a pleasant journey! its thanks to you</p>
+	  </th:block>
+     <th:block th:unless="${list}!=null">
+		 <h2 class="mb-4 doc-page-title">아직 등록된 숙소가 없어요</h2>
+	
+	 </th:block>
 
     <hr class="my-5">
 
@@ -203,8 +209,8 @@
 		  width: 500px;
 	  }
    	</style>
-    	
-      <nav aria-label="Page navigation">
+    	<th:block th:if="${list}!=null">
+			<nav aria-label="Page navigation">
                           <ul class="pagination" style="width: 500px; margin:0 auto;" >
                             <li class="page-item first">
                               <a class="page-link" th:href="@{main(page=1)}"
@@ -234,6 +240,8 @@
                             </li>
                           </ul>
                         </nav>	
+		</th:block>
+      
     	
       
      
@@ -266,6 +274,13 @@
 </div>
 	</th:block>
 
+	<script th:inline="javascript">
+   	var msg = '[[${msg}]]';
+	if(msg!='null'){
+		alert(msg);
+	}
+		
+	</script>
     
   
 

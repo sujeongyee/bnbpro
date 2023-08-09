@@ -9,7 +9,7 @@
   		select * from room r left join lodgment l on r.lodg_num = l.lodg_num left join userservice u on r.room_num = u.room_num where r.lodg_num in (#{lodg}) and u.ask_content is not null
     </select>
   	<select id="getAll">
-  	 select * from room r left join lodgment l on r.lodg_num = l.lodg_num left join userservice u on r.room_num = u.room_num where u.ask_content is not null
+  	 select * from room r left join lodgment l on r.lodg_num = l.lodg_num left join userservice u on r.room_num = u.room_num where u.ask_content is not null and bn_id = #{bn_id}
   	</select>
   	
   	<select id = "getAnswer">

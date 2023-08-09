@@ -27,9 +27,9 @@ public class CSServiceImpl implements CSSerivce{
 	}
 
 	@Override
-	public List<InquiryVO> getAll() {
+	public List<InquiryVO> getAll(String bn_id) {
 		
-		return csMapper.getAll();
+		return csMapper.getAll(bn_id);
 	}
 
 	@Override

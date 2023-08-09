@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -32,12 +34,12 @@ public class InquiryController {
 	private CSSerivce csService;
 	
 	@GetMapping("/cs")
-	public String cs(Model model) {
+	public String cs(Model model,HttpSession session) {
 		
-		String bn_id = "admin";
+		String bn_id = session.getAttribute("userid").toString();
 		List<LodgmentVO> lodgVO =csService.getLodgName(bn_id);
 		model.addAttribute("lodgVO", lodgVO);
-		List<InquiryVO> list2 = csService.getAll();
+		List<InquiryVO> list2 = csService.getAll(bn_id);
 		for(InquiryVO vo : list2) {
 			System.out.println(vo.toString());
 		}
