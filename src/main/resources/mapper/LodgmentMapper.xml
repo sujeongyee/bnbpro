@@ -23,7 +23,7 @@
 		        #{lodg_img_uuid},
 		        #{lodg_ph},
 		        #{lodg_content},
-		        'admin')
+		        #{bn_id})
 	</insert>
 	
 	<select id="getLodgList" resultType="LodgmentVO">

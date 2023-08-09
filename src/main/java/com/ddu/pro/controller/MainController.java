@@ -53,8 +53,9 @@ public class MainController {
 
 	@Autowired
 	TestService testService;
-
-
+	
+	
+	
 	@GetMapping("/join")
 	public String join(Model model) {
 		model.addAttribute("vo", new BusinessVO());
@@ -65,14 +66,16 @@ public class MainController {
 	@GetMapping("/main")
 	public String main(Model model, Criteria2 cri, HttpSession session) {
 
-		System.out.println(session.getAttribute("userid")+"ddd");
+		String userid = session.getAttribute("userid").toString();
+		System.out.println(userid);
 		
+		PageVO2 page = new PageVO2(cri, lodgmentSerivce.getTotal(userid, cri));
+		List<LodgmentVO> list = lodgmentSerivce.getLodgList(userid, cri);
+		if(list.size()>0) {
+			model.addAttribute("list", list);
+			model.addAttribute("page", page);
+		}
 		
-		String bn_id = "admin";
-		PageVO2 page = new PageVO2(cri, lodgmentSerivce.getTotal(bn_id, cri));
-		List<LodgmentVO> list = lodgmentSerivce.getLodgList(bn_id, cri);
-		model.addAttribute("list", list);
-		model.addAttribute("page", page);
 		return "main";
 	}
 
@@ -117,7 +120,6 @@ public class MainController {
 	@PostMapping("/join")
 	public String actionForm(@Valid @ModelAttribute("vo") BusinessVO vo, Errors error, Model model,
 								RedirectAttributes ra) {
-		System.out.println(vo.toString());
 		if (error.hasErrors()) {
 			System.out.println("에러");
 			List<FieldError> list = error.getFieldErrors();
@@ -151,8 +153,8 @@ public class MainController {
 	}
 
 	@GetMapping("/login")
-	public String login() {
-
+	public String login(HttpSession session) {
+		session.invalidate();
 		return "login";
 	}
 
@@ -199,7 +201,7 @@ public class MainController {
 			System.out.println("비번");
 			return "login";
 		}
-
+		model.addAttribute("vo", vo);
 		return "redirect:/main";
 	}
 	

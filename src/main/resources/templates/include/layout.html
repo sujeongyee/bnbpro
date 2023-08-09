@@ -218,18 +218,21 @@
               
             </ul>
           </li>-->
-
-									<li class="nav-item me-2">
-										<a href="#" target="_blank" class="nav-link"
-											style="color: black;font-weight: bold;font-size: 16px;"><!--<i class="tf-icons bx bx-buoy"></i>-->
-											마이페이지</a>
-									</li>
-
+									
 									<li class="nav-item">
 										<p class="nav-link"
 											style="color: black;font-weight: bold;font-size: 16px;margin-bottom: 0;"><!--<i class="tf-icons bx bx-gift"></i>-->
-											admin님 반갑습니다</p>
+											[[${session.userid}]]님 반갑습니다</p>
 									</li>
+									
+									
+									<li class="nav-item me-2">
+										<a href="#" target="_blank" class="nav-link logout"
+											style="color: #ff385c;font-weight: bold;font-size: 16px;"><!--<i class="tf-icons bx bx-buoy"></i>-->
+											로그아웃</a>
+									</li>
+
+									
 
 								</ul>
 
@@ -358,6 +361,18 @@
 				<!-- / Layout page -->
 
 	</body>
+	
+	<script>
+		$(".logout").click(function(){
+			event.preventDefault();
+		
+			sessionStorage.clear();
+			location.href='/login';
+		})
+		
+	</script>
+	
+	
 	<!-- Overlay -->
 	<div class="layout-overlay layout-menu-toggle"></div>
 
