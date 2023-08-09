@@ -12,7 +12,7 @@
  -->
 <!-- beautify ignore:start -->
 <html lang="en" class="light-style  customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
-
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
@@ -162,10 +162,11 @@
           <h4 class="mb-2" style="margin-left: 75px;">Welcome to AIRBNB! 👋</h4>
           <p class="mb-4"></p>
 
-          <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+          <form id="formAuthentication" class="mb-3" action="/loginForm" method="POST">
             <div class="mb-3">
-              <label for="email" class="form-label">아이디</label>
-              <input type="text" class="form-control" id="email" name="email-username" placeholder="아이디를 입력해주세요" autofocus>
+              <label for="bn_id" class="form-label">아이디</label>
+              <input type="text" class="form-control" id="bn_id" name="bn_id" th:value="${vo.bn_id==null ? '': vo.bn_id}" placeholder="아이디를 입력해주세요" autofocus>
+              <span>[[${valid_bn_id}]]</span>
             </div>
             <div class="mb-3 form-password-toggle">
               <div class="d-flex justify-content-between">
@@ -175,9 +176,10 @@
                 </a>
               </div>
               <div class="input-group input-group-merge">
-                <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                <input type="password" id="password" class="form-control" name="bn_pw" value="" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
               </div>
+              <span>[[${valid_bn_pw}]]</span>
             </div>
             <div class="mb-3">
               <div class="form-check">
@@ -188,13 +190,13 @@
               </div>
             </div>
             <div class="mb-3">
-              <button class="btn btn-primary d-grid w-100" type="submit" onclick="">Sign in</button>
+              <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
             </div>
           </form>
 
           <p class="text-center">
             <span style="color: black;">계정이 없으신가요?</span>
-            <a href="join">
+            <a href="/join">
               <span style="font-weight: bold;">가입하러가기</span>
             </a>
           </p>
@@ -207,7 +209,15 @@
 
 <!-- / Content -->
 
-  
+   <script th:inline="javascript">
+	   
+		const msg = '[[${msg}]]';
+	
+		if(msg != 'null') {
+			alert(msg);
+		}
+	   
+   </script>
 
   
   <!--<div class="buy-now">
