@@ -36,7 +36,20 @@
 	
 	<!-- 사업자 아이디에 맞게 데이터 총 갯수 뽑기 -->
 	<select id="getTotal">
-		select count(*) as total from reservation where bn_id = #{bn_id}
+		select count(*) as total from reservation
+		where bn_id = #{bn_id}
+		<if test="cri.searchName != '' and cri.searchName != null">
+			and res_name like concat('%',#{cri.searchName},'%')
+		</if>
+		<if test="cri.searchPhone != '' and cri.searchPhone != null">
+			and res_phone like concat('%',#{cri.searchName},'%')
+		</if>
+		<if test="cri.searchId != '' and cri.searchId != null">
+			and user_id like concat('%',#{cri.searchName},'%')
+		</if>
+		<if test="cri.searchRoomnum != '' and cri.searchRoomnum != null">
+			and room_num like concat('%',#{cri.searchRoomnum},'%')
+		</if>
 	</select>
 	
 	
