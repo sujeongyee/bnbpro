@@ -5,8 +5,12 @@
   <mapper namespace="com.ddu.pro.service.ReservationMapper">
   	<!-- 예약현황 전체 뽑기(페이징) -->
 	<select id="getReserv">
-		select * from reservation 
-		where bn_id = #{bn_id}
+		select * from reservation res
+		join room ro
+		on res.room_num = ro.room_num
+		join lodgment l
+		on ro.lodg_num = l.lodg_num
+		where res.bn_id = #{bn_id}
 		<if test="cri.searchName !=null and cri.searchName!=''">
 		and res_name like concat ('%',#{cri.searchName},'%')
 		</if>
@@ -19,12 +23,15 @@
 		<if test="cri.searchRoomnum !=null and cri.searchRoomnum !=''">
 		and room_num like concat ('%',#{cri.searchRoomnum},'%')
 		</if>
-		order by res_num desc
+		order by res.res_num desc
 		limit #{cri.pageStart}, #{cri.amount}
 	</select>
 	<!-- 예약현황 전체 뽑기(달력) -->
 	<select id="getReservAll">
-		select * from reservation where bn_id = #{bn_id} 
+		select res.*, ro.room_name from reservation res
+		join room ro
+		on res.room_num = ro.room_num
+		where bn_id = #{bn_id} 
 	</select>
 	
 	<!-- 사업자 아이디에 맞게 데이터 총 갯수 뽑기 -->
@@ -35,12 +42,16 @@
 	
 	<!-- 예약현황 자세히 보기 -->
 	<select id="getDetailRes">
-		select * from reservation where room_num = #{room_num} and res_num = #{res_num}
+		select res.*, ro.room_name, lo.lodg_name, lo.lodg_num from reservation res
+		join room ro
+		on res.room_num = ro.room_num
+		join lodgment lo
+		on ro.lodg_num = lo.lodg_num 
+		where res.room_num = #{room_num} and res.res_num = #{res_num}
 	</select>
 	<!-- 예약 수정 -->
 	<update id="updateReserv">
 		update reservation set 
-			room_num = 503,
 			res_startdate = #{res_startdate},
 			res_enddate = #{res_enddate},
 			res_price = #{res_price},
@@ -52,4 +63,12 @@
 	<delete id="deleteReserv">
 		delete from reservation where res_num = #{res_num}
 	</delete>
+	
+	<!-- 숙소에 따른 객실 번호 출력 -->
+	<select id="getRoomnum">
+		select lo.lodg_num, ro.room_num from lodgment lo
+		join room ro
+		on ro.lodg_num = lo.lodg_num
+		where lo.lodg_num = #{lodg_num};
+	</select>
   </mapper>

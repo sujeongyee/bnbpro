@@ -13,4 +13,5 @@ public interface ReservationService {
 	int updateReserv(ReservationVO vo);
 	int deleteReserv(int res_num);
 	int getTotal(String bn_id, Criteria cri);
+	ArrayList<ReservationVO> getRoomnum(int lodg_num);
 }
