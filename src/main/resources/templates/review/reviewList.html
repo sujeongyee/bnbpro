@@ -19,7 +19,7 @@
 			</style>
 			<div style="margin-left: 100px;">
 				<div class="mb-3 row" style="display: flex;">
-					  <label for="html5-date-input" class="col-md-2 col-form-label">리뷰 등록일</label>
+					  <label for="html5-date-input" class="col-md-2 col-form-label" style="width: 7%;">리뷰 등록일</label>
 					  <span class="row" style=" width: 300px; margin-right: -1px;">
 					  	<input class="form-control" style="width: 300px;" type="date" name="startDate" id="html5-date-input" th:value="${pageVO.cri.startDate}">
 					  </span>
@@ -30,7 +30,7 @@
 				</div>
 				<div style="display: flex;">
 					<div style="flex: 1 1 auto;">
-					  <label for="defaultFormControlInput" class="form-label">사용자명</label>
+					  <label for="defaultFormControlInput" class="form-label">사용자ID</label>
 					  <input type="text" class="form-control" style="width:90%" name="searchUser_id" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp" th:value="${pageVO.cri.searchUser_id}">
 					</div>
 					
@@ -48,8 +48,8 @@
 			<hr class="my-5">
 			
 		   <!-- Table within card -->
-              <h5 class="mb-4">리뷰 상세</h5>
-              <div class="table-responsive text-nowrap">
+              <h5 class="mb-4" style="margin-left: 30px;"><strong>리뷰 상세</strong></h5>
+              <div class="table-responsive text-nowrap" style="margin-left: 50px; margin-right: 50px;">
                 <table class="table card-table">
                   <thead>
                     <tr>
@@ -57,7 +57,7 @@
                       <th>객실번호</th>
                       <th>내용</th>
                       <th>별점</th>
-                      <th>회원ID</th>
+                      <th>사용자ID</th>
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
