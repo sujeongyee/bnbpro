@@ -37,8 +37,9 @@ public class RoomController {
 	@Autowired
 	private RoomService roomService;
 
-	
 
+	
+	
 	@GetMapping("/List")
 	public String roomList(@RequestParam("lodg_num") int num, Model model) {
 		model.addAttribute("list", roomService.getRoomList(num));
