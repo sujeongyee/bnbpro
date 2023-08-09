@@ -21,9 +21,9 @@ public class RoomVO {
 	
 	private Integer room_num;
 	private String room_name;
-	private String room_price;
+	private Integer room_price;
 	private String room_detail;
-	private String room_users;
-	private String lodg_num;
+	private Integer room_users;
+	private Integer lodg_num;
 	
 }
