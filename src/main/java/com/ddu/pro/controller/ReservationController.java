@@ -57,7 +57,7 @@ public class ReservationController {
 		String bn_id = "admin";
 		for(ReservationVO v : reservationService.getReservAll(bn_id)) {
 			String url = "/reservation/updateForm/?num="+v.getRes_num()+"&room="+v.getRoom_num();
-			CalendarVO vo = new CalendarVO(v.getRes_num(),v.getRoom_num(), v.getRes_startdate(), v.getRes_enddate(),url);
+			CalendarVO vo = new CalendarVO(v.getRes_num(),v.getRoom_name(), v.getRes_startdate(), v.getRes_enddate(),url);
 			System.out.println(vo.getEnd());
 			calList.add(vo);
 		}
