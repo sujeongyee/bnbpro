@@ -20,7 +20,7 @@ create table business (
     bn_name varchar(40),
     bn_title varchar(50),
     bn_num varchar(50),
-    bn_phone int (30)    
+    bn_phone varchar (30)    
 );
 
 ## 예약 3

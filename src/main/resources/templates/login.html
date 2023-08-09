@@ -165,7 +165,7 @@
           <form id="formAuthentication" class="mb-3" action="/loginForm" method="POST">
             <div class="mb-3">
               <label for="bn_id" class="form-label">아이디</label>
-              <input type="text" class="form-control" id="bn_id" name="bn_id" th:value="${vo.bn_id==null ? '': vo.bn_id}" placeholder="아이디를 입력해주세요" autofocus>
+              <input type="text" class="form-control" id="bn_id" name="bn_id" value="" placeholder="아이디를 입력해주세요" autofocus>
               <span>[[${valid_bn_id}]]</span>
             </div>
             <div class="mb-3 form-password-toggle">
