@@ -8,8 +8,8 @@
 		<div class="card mb-4">
 			<hr class="my-5">
 			<h5 class="card-header">예약 정보 수정</h5>
-			<form action="modifyReserv" method="post">
-				<input type="hidden"  name="res_num" th:value="${vo.res_num}">
+			<form action="/reservation/modifyReserv" method="post">
+				<input type="hidden" name="res_num" th:value="${vo.res_num}">
 				<div class="card-body">
 					<div class="mb-3 row">
 						<label for="html5-res_name-input" class="col-md-2 col-form-label">숙소 이름</label>
@@ -28,8 +28,8 @@
 					<div class="mb-3 row">
 						<label for="html5-res_phone-input" class="col-md-2 col-form-label">전화번호</label>
 						<div class="col-md-10">
-							<input class="form-control" name="res_phone" type="search" th:value="${vo.res_phone}" readonly
-								id="html5-res_phone-input" />
+							<input class="form-control" name="res_phone" type="search" th:value="${vo.res_phone}"
+								readonly id="html5-res_phone-input" />
 						</div>
 					</div>
 					<div class="mb-3 row">
@@ -49,13 +49,15 @@
 					<div class="mb-3 row">
 						<label for="html5-res_price-input" class="col-md-2 col-form-label">총 가격</label>
 						<div class="col-md-10">
-							<input class="form-control" name="res_price" type="tel" th:value="${vo.res_price}" id="html5-res_price-input" />
+							<input class="form-control" name="res_price" type="tel" th:value="${vo.res_price}"
+								id="html5-res_price-input" />
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<label for="html5-res_users-input" class="col-md-2 col-form-label">이용자 수</label>
 						<div class="col-md-10">
-							<input class="form-control" name="res_users" type="text" th:value="${vo.res_users}" id="html5-res_users-input" />
+							<input class="form-control" name="res_users" type="text" th:value="${vo.res_users}"
+								id="html5-res_users-input" />
 						</div>
 					</div>
 					<div class="mb-3 row">
@@ -75,11 +77,9 @@
 					<div class="mb-3 row">
 						<label for="html5-room_num-input" class="col-md-2 col-form-label">객실 번호</label>
 						<div class="col-md-10">
-							<!--<input class="form-control" name="room_num" type="text" th:value="${vo.room_num}"
-								id="html5-room_num-input" />-->
-								<select id="selectTypeOpt" name="searchName" class="form-select color-dropdown">
-									<option th:each="num:${number}">[[${num.room_num}]]</option>
-								</select>	
+							<select id="selectTypeOpt" name="room_num" class="form-select color-dropdown">
+								<option th:each="num:${number}">[[${num.room_num}]]</option>
+							</select>
 						</div>
 					</div>
 					<button type="submit" class="btn btn-dark">수정하기</button>
