@@ -30,19 +30,16 @@ public class ReservationServiceImpl implements ReservationService{
 
 	@Override
 	public int deleteReserv(int res_num) {
-		// TODO Auto-generated method stub
-		return 0;
+		return reservationMapper.deleteReserv(res_num);
 	}
 
 	@Override
 	public int getTotal(String bn_id, Criteria cri) {
-		// TODO Auto-generated method stub
 		return reservationMapper.getTotal(bn_id, cri);
 	}
 
 	@Override
 	public ArrayList<ReservationVO> getReservAll(String bn_id) {
-		// TODO Auto-generated method stub
 		return reservationMapper.getReservAll(bn_id);
 	}
 

@@ -68,7 +68,7 @@ public class ReservationController {
 	//예약 정보 삭제
 	@GetMapping("/reservDelete")
 	public String reservDelete(@RequestParam("num") int res_num) {
-		
+		reservationService.deleteReserv(res_num);
 		return "redirect:/reservation/allList";
 	}
 	
