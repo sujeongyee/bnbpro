@@ -76,7 +76,7 @@ create table date_reservation (
 
 
 ## 리뷰 이미지 8
-create table rev_img_num (
+create table rev_img (
 	rev_img_num int primary key auto_increment,
     rev_img_filename varchar(20),
     rev_img_filepath varchar(40),
