@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.ddu.pro.command.InquiryVO;
 import com.ddu.pro.command.LodgmentVO;
+import com.ddu.pro.command.RegistVO;
 
 @Mapper
 public interface CSMapper {
@@ -16,4 +17,5 @@ public interface CSMapper {
 	public List<InquiryVO> getAnswer(String answer_num);
 	public void registAnswer(@Param("answer") String answer , @Param("num") int num);
 	public void check (int num);
+	public void regist (RegistVO vo);
 }
