@@ -18,9 +18,11 @@ public class InquiryVO {
 	private Integer ask_num;
 	private LocalDateTime ask_regdate;
 	private String ask_content;
-	private char answer_check;
+	private String answer_check;
 	private String user_id;
 	private Integer room_num;
+	private Integer answer_num;
+	private String answer_content;
 	
 
 }

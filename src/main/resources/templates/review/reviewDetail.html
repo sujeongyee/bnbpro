@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<th:block th:replace="~{./include/layout::setContent(~{::.card})}">	
+	<div class="col-md-6 col-lg-4 mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title">[[${vo.rev_star}]]</h4>
+          <h6 class="card-subtitle text-muted">[[${ #temporals.format(vo.rev_regdate, 'yy년MM월dd일')}]]  / [[${vo.user_id}]] </h6>
+          
+          <p class="card-text">객실번호: [[${vo.room_num}]]</p>
+          <p class="card-text">[[${vo.rev_content}]]</p>
+          <br>
+          <th:block th:each="img : ${list}">
+	          <img
+	          	style="width: 350px; "
+	            th:src="@{display(filepath=${img.rev_img_filepath},uuid=${img.rev_img_uuid},filename=${img.rev_img_filename}  )}"
+	            alt="Card image cap"
+	          />
+		     
+		  </th:block>
+	      
+
+        </div>
+      </div>
+    </div>
+	</th:block>
+</body>
+</html>
+
+
+
+
+
