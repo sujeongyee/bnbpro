@@ -112,7 +112,9 @@ public class RoomServiceImpl implements RoomService {
 	public int modifyRoomImg(int roomnum, List<MultipartFile> list) {
 		
 		ArrayList<RoomImgVO> imglist = roomMapper.getimgList(roomnum);
-		
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		System.out.println(imglist.toString());
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		int idx = 0;
 		list = list.stream().filter(p->p.isEmpty()==false).collect(Collectors.toList());
 		for (MultipartFile file : list) {

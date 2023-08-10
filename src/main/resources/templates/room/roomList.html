@@ -84,7 +84,7 @@
 		</div>
 		</div>
 	</th:block>
-	<script>
+	<script th:inline="javascript">
 		$('.imgbtn').click(() => {
 			//console.log($(event.target).prev().val())
 			//console.log($(event.target).next().find('.offcanvas-body'))
@@ -121,7 +121,7 @@
 				console.log(event.target.value)
 				location.href = '/room/deleteRoom?room_num=' + event.target.value;
 			} else {
-				location.href = '/room/List';
+				location.href = '/room/List?lodg_num='+JSON.parse('[[${lodg.lodg_num}]]');
 
 			}
 		}
