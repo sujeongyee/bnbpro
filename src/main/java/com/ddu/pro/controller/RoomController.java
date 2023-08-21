@@ -39,7 +39,7 @@ public class RoomController {
 	private RoomService roomService;
 
 
-	
+	//테스트 주석
 	
 	@GetMapping("/List")
 	public String roomList(@RequestParam("lodg_num") int num, Model model) {
